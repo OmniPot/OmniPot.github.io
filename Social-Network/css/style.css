@@ -1,0 +1,12 @@
+#notyContainer {
+	display: inline-block;
+	position: fixed;
+	width: 25%;
+	left: 1em;
+	bottom: 1em;
+}
+
+.coverImage, .profileImage {
+	width: 12em;
+	height: 12em;
+}

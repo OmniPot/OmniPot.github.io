@@ -1,0 +1,28 @@
+<form>
+	<div>
+		<label>Username: </label>
+		<input type="text" name="username" ng-model="user.username" />
+	</div>
+	<div>
+		<label>Password: </label>
+		<input type="password" name="password" ng-model="user.password" />
+	</div>
+		<label>Confirm password: </label>
+		<input type="password" name="confirmPassword" ng-model="user.confirmPassword" />
+	<div>
+		<label>Full name: </label>
+		<input type="text" name="name" ng-model="user.name" />
+	</div>
+	<div></div>
+		<label>Email: </label>
+		<input type="email" name="email" ng-model="user.email" />
+	</div>
+	<div>
+		<label>Gender: </label>
+		<label>Male: </label><input type="radio" name="gender" value="Male" ng-model="user.gender" />
+		<label>Female: </label><input type="radio" name="gender" value="Female" ng-model="user.gender" />
+		<label>Other: </label><input type="radio" name="gender" value="Other" ng-model="user.gender" />
+	</div>
+	<button>Clear</button>
+	<button ng-click="register(user)">Register</button>
+</form>
