@@ -1,0 +1,7 @@
+<aside id="friendsContainer">
+	<span>Friends: {{friendsCount}}</span>
+	<div class="friendItem" ng-repeat="friend in friends">
+		<img class="img-thumbnail img-reponsive" ng-src="{{friend.profileImageData}}" alt="{{friend.name}}" />
+		<span class="friendName">{{friend.name}}</span>
+	</div>
+</aside>

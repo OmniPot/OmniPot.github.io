@@ -12,12 +12,13 @@ socialNetwork.factory('authentication', function($sessionStorage) {
 	}
 
 	function getHeaders() {
-		var headers = {};
-		var userData = getUserData();
-		if (userData) {
-			headers.Authorization = 'Bearer ' + userData.access_token;
-		}
+		var headers,
+			userData = getUserData();
 
+		if (userData) {
+			headers = { Authorization: 'Bearer ' + userData.access_token };
+		}
+		
 		return headers;
 	};
 
@@ -26,11 +27,15 @@ socialNetwork.factory('authentication', function($sessionStorage) {
 		return isAdmin;
 	}
 
+	function isLoggedIn() {
+		return this.getUserData() ? true : false;
+	}
+
 	return {
 		getUserData: getUserData,
 		setUserData: setUserData,
 		getHeaders: getHeaders,
 		clearUserData: clearUserData,
-		isAdmin: isAdmin
+		isLoggedIn: isLoggedIn,
 	};
 });

@@ -1,67 +1,58 @@
-socialNetwork.factory('userData', ['$resource', 'baseServiceUrl', 'authentication',
-	function($resource, baseServiceUrl, authentication) {
-		function login(loginData) {
-			var resource = $resource(baseServiceUrl + 'users/login').save(loginData);
-
-			resource.$promise.then(
-				function success(data) {
-					authentication.setUserData(data);
-				});
-
-			return resource;
-		}
-
-		function logout() {
-			var resource = $resource(baseServiceUrl + 'users/logout', {}, {
-				logout: {
-					method: 'POST',
-					headers: authentication.getHeaders()
-				}
-			}).logout();
-
-			authentication.clearUserData();
-
-			return resource;
-		}
-
-		function register(registerData) {
-			var resource = $resource(baseServiceUrl + 'users/register').save(registerData);
-
-			resource.$promise.then(
-				function success(data) {
-					authentication.setUserData(data);
-				});
-
-			return resource;
-		}
-
-		function getUserProfileData() {
-			var resource = $resource(baseServiceUrl + 'me', {}, {
-				get: {
-					headers: authentication.getHeaders()
-				}
-			}).get();
-
-			return resource;
-		}
-
-		function editUserProfileData(data) {
-			var resource = $resource(baseServiceUrl + 'me', {}, {
-				editProfile: {
-					method: 'PUT',
-					headers: authentication.getHeaders()
-				}
-			}).editProfile(data);
-
-			return resource;
-		}
-
-		return {
-			login: login,
-			logout: logout,
-			register: register,
-			getProfileData: getUserProfileData,
-			editProfileData: editUserProfileData
-		}
+socialNetwork.factory('userData', function($http, baseServiceUrl, authentication) {
+	function login(loginData) {
+		return $http({
+				method: 'POST',
+				url: baseServiceUrl + 'users/login',
+				data: loginData
+			})
+			.success(function success(data) {
+				authentication.setUserData(data);
+			});
 	}
-]);
+
+	function logout() {
+		return $http({
+				method: 'POST',
+				url: baseServiceUrl + 'users/logout',
+				headers: authentication.getHeaders(),
+			})
+			.success(function success() {
+				authentication.clearUserData();
+			});
+	};
+
+	function register(registerData) {
+		return $http({
+				method: 'POST',
+				url: baseServiceUrl + 'users/register',
+				data: registerData
+			})
+			.success(function success(data) {
+				authentication.setUserData(data);
+			});
+	}
+
+	function getUserFullData(username) {
+		return $http({
+			method: 'GET',
+			url: baseServiceUrl + 'users/' + username + '/',
+			headers: authentication.getHeaders()
+		});
+	}
+
+	function getUserPreviewData(username) {
+		return $http({
+			method: 'GET',
+			url: baseServiceUrl + 'users/' + username + '/preview',
+			headers: authentication.getHeaders()
+		});
+	}
+
+	return {
+		login: login,
+		logout: logout,
+		register: register,
+		getUserData: getUserFullData,
+		getUserPreview: getUserPreviewData
+	}
+});

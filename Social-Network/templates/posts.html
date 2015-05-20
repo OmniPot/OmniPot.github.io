@@ -1,0 +1,16 @@
+<div class="container-fluid" ng-repeat="post in posts">
+	<header>
+		<img class="img-thumbnail img-responsive" ng-src="{{post.author.profileImageData}}" />
+		<h4>{{post.author.name}}</h4>
+		<dt>{{post.date}}</dt>
+	</header>
+	<section>
+		<p>{{post.postContent}}</p>
+	</section>
+	<footer>
+		<p>
+			<span>{{post.likesCount}} <button>Like</button></span>
+			<span>{{post.totalCommentsCount}} <button>Comment</button></span>
+		</p>
+	</footer>
+</div>

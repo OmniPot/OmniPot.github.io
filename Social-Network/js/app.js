@@ -1,10 +1,9 @@
-var socialNetwork = angular.module('socialNetworkApp', ['ngRoute', 'ngResource', 'ngStorage', 'naif.base64']);
+var socialNetwork = angular.module('socialNetworkApp', ['ngRoute', 'ngStorage', 'naif.base64', 'ui.bootstrap']);
 
 socialNetwork.constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net/api/');
 
 socialNetwork.config(function($routeProvider) {
 	$routeProvider.when('/welcome', {
-		controller: '',
 		templateUrl: 'templates/welcome.html'
 	});
 
@@ -24,16 +23,32 @@ socialNetwork.config(function($routeProvider) {
 	});
 
 	$routeProvider.when('/profile', {
-		controller: 'userController',
-		templateUrl: 'templates/profile.html'
+		controller: 'editProfileController',
+		templateUrl: 'templates/editProfile.html'
 	});
 
 	$routeProvider.when('/home', {
-		controller: 'homeController',
 		templateUrl: 'templates/home.html'
+	});
+
+	$routeProvider.when('/users/:username/', {
+		templateUrl: 'templates/userWall.html'
 	});
 
 	$routeProvider.otherwise({
 		redirectTo: '/welcome'
+	});
+});
+
+socialNetwork.run(function($rootScope, $location, authentication) {
+	$rootScope.$on('$locationChangeStart', function(event) {
+		var isWelcome = $location.path().indexOf('/welcome'),
+			isRegister = $location.path().indexOf('/register'),
+			isLogin = $location.path().indexOf('/login');
+
+		if (!authentication.isLoggedIn() && (isWelcome == -1 && isRegister == -1 && isLogin == -1)) {
+			socialNetwork.noty.warn("Login or register first.");
+			$location.path("/welcome");
+		}
 	});
 });

@@ -1,10 +1,14 @@
-<section id="userProfileSection">
-	<img src="{{profileData.coverImageData}}" class="coverImage">
-	<img src="{{profileData.profileImageData}}" class="profileImage">
-	<h3>{{profileData.name}}({{profileData.username}})</h3>
-</section>
+<div class="profile pull-left">
+	<img ng-src="{{profileData.profileImageData}}" class="profileImage img-thumbnail img-responsive">
+</div>
 
-<section id="userControlsSection">
-	<a href="#/logout">Logout</a>
-	<a href="#/profile">Profile</a>
-</section>
+<nav class="container-fluidcontainer-fluid navbar navbar-default navbar-top col-sm-10">
+	<a class="headerUsername" href="#/users/{{profileData.username}}">{{profileData.name}}({{profileData.username}})</a>
+	<ul class="nav navbar-nav navbar-right">
+		<li><a class="navbar-link-medium" href="#/home">Home</a></li>
+		<li><a href="#/profile">Edit profile</a></li>
+		<li><a href="" ng-click="displayPendingRequests()">Friendship Requests</a></li>
+		<li><a href="#/profile/password">Change Password</a></li>
+		<li><a href="#/logout">Logout</a></li>
+	</ul>
+</nav>
