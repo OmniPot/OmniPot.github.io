@@ -1,42 +1,42 @@
-<form class="form-horizontal col-sm-4 col-sm-offset-1">
-	<div class="form-group">
-		<h2 class="text-center">Registration page</h2>
+<form>
+	<div>
+		<h2>Registration page</h2>
 	</div>
-	<div class="form-group">
+	<div>
 	    <div>
 	    	<input type="text" name="username" ng-model="user.username" class="form-control input-lg" placeholder="Username">
 	    </div>
   	</div>
-	<div class="form-group">
+	<div>
 		<div>
-	    	<input type="password" name="password" ng-model="user.password" class="form-control input-lg" placeholder="Password"/>
+	    	<input type="password" name="password" ng-model="user.password" placeholder="Password"/>
 	    </div>
 	</div>
-	<div class="form-group">
+	<div>
 		<div>
-	    	<input type="password" name="confirmPassword" ng-model="user.confirmPassword" class="form-control input-lg" placeholder="Confirm Password"/>
+	    	<input type="password" name="confirmPassword" ng-model="user.confirmPassword" placeholder="Confirm Password"/>
 	    </div>
 	</div>
-	<div class="form-group">
+	<div>
 		<div>
-	    	<input type="text" name="name" ng-model="user.name" class="form-control input-lg" placeholder="Full name"/>
-	    </div>
-	</div>
-
-	<div class="form-group">
-		<div>
-	    	<input type="email" name="email" ng-model="user.email" class="form-control input-lg" placeholder="Email"/>
+	    	<input type="text" name="name" ng-model="user.name" placeholder="Full name"/>
 	    </div>
 	</div>
 
-	<div class="form-group">
-		<label class="control-label">Gender: </label>
-	    <label class="btn btn-primary" ng-model="user.gender" btn-radio="'Other'" uncheckable>Other</label>
-	    <label class="btn btn-primary" ng-model="user.gender" btn-radio="'Male'" uncheckable>Male</label>
-	    <label class="btn btn-primary" ng-model="user.gender" btn-radio="'Female'" uncheckable>Female</label>
+	<div>
+		<div>
+	    	<input type="email" name="email" ng-model="user.email" placeholder="Email"/>
+	    </div>
 	</div>
-	<div class="form-group pull-right">
-		<button class="btn btn-lg btn-primary" ng-click="register(user)">Register</button>
-		<a class="btn btn-md btn-link" href="#/login">Login</a>
+
+	<div>
+		<label>Gender: </label>
+	    <input type="radio" value="Other" ng-model="user.gender">Other</label>
+	    <input type="radio" value="Male" ng-model="user.gender">Male</label>
+	    <input type="radio" value="Female" ng-model="user.gender">Female</label>
+	</div>
+	<div>
+		<button ng-click="register(user)">Register</button>
+		<a href="#/login">Login</a>
 	</div>
 </form>

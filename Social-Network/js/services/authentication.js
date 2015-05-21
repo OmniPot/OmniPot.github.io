@@ -22,11 +22,6 @@ socialNetwork.factory('authentication', function($sessionStorage) {
 		return headers;
 	};
 
-	function isAdmin() {
-		var isAdmin = getUserData().isAdmin;
-		return isAdmin;
-	}
-
 	function isLoggedIn() {
 		return this.getUserData() ? true : false;
 	}

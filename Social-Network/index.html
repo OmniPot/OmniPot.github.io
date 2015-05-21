@@ -4,8 +4,6 @@
         <meta charset="UTF-8">
         <title>Social Network</title>
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.js"></script>
@@ -14,8 +12,6 @@
         <script src="js/lib/ngStorage.js"></script>
         <script src="js/lib/angular-base64-upload.js"></script>
         <script src="js/lib/jquery.noty.packaged.min.js"></script>
-        <script src="js/lib/ui-bootstrap-0.9.0.min.js"></script>
-        <script src="js/lib/bootstrap.min.js"></script>
     </head>
     
     <body>
@@ -36,14 +32,14 @@
         <script src="js/controllers/authorization/registerController.js"></script>
 
         <script src="js/controllers/profile/editProfileController.js"></script>
-        <script src="js/controllers/profile/loggedInHeaderController.js"></script>
-        <script src="js/controllers/profile/userHeaderController.js"></script>  
+        <script src="js/controllers/profile/loggedInUserHeaderController.js"></script>
+        <script src="js/controllers/profile/foreignUserHeaderController.js"></script>  
 
         <script src="js/controllers/posts/feedPostsController.js"></script>
-        <script src="js/controllers/posts/userWallPostsController.js"></script>
+        <script src="js/controllers/posts/foreignUserWallPostsController.js"></script>
 
         <script src="js/controllers/friends/feedFriendsController.js"></script>
-        <script src="js/controllers/friends/userFriendsController.js"></script>
+        <script src="js/controllers/friends/foreignUserFriendsController.js"></script>
         
         <!-- Services -->
         <script src="js/services/authentication.js"></script>
@@ -54,11 +50,11 @@
 
         <!-- Directives -->
         <script src="js/directives/loggedInUserHeader.js"></script>
-        <script src="js/directives/userWallHeader.js"></script>
+        <script src="js/directives/foreignUserWallHeader.js"></script>
         <script src="js/directives/feedFriends.js"></script>
-        <script src="js/directives/userFriendsPreview.js"></script>  
+        <script src="js/directives/foreignUserFriendsPreview.js"></script>  
         <script src="js/directives/feedPosts.js"></script>  
-        <script src="js/directives/userWallPosts.js"></script>
+        <script src="js/directives/foreignUserWallPosts.js"></script>
 <!--         <script src="js/directives/userFriendsPreview.js"></script>   
  -->    </body>
 </html>

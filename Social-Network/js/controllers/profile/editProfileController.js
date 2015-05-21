@@ -1,17 +1,19 @@
-socialNetwork.controller('editProfileController', function($scope, $location, profileData) {	
-	$scope.editOwnProfile = function(editedProfileData) {
-		if (editedProfileData.profileImageData) {
-			$scope.editedProfileData.profileImageData =
-				$scope.formatImageString(editedProfileData.profileImageData.base64);
-		}
-		if (editedProfileData.coverImageData) {
-			$scope.editedProfileData.coverImageData =
-				$scope.formatImageString(editedProfileData.coverImageData.base64);
-		}
-		profileData.editProfileData(editedProfileData).then(
-			function success() {
+socialNetwork.controller('editProfileController', function($scope, $rootScope, $location, profileData) {
+	profileData.getProfileData().then(
+		function success(profile) {
+			$scope.editedProfileData = profile.data;
+		},
+		function error(error) {
+			socialNetwork.noty.error('Error fetching user information.');
+		});
+
+	$scope.editOwnProfile = function(newData) {
+		profileData.editProfileData(newData).then(
+			function success(data) {
 				socialNetwork.noty.success("Successfully edited profile information.");
 				$location.path('/home');
+			}, function error(error) {
+				socialNetwork.noty.error("Error while editing profile information.");
 			});
 	}
 });

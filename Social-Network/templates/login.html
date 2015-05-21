@@ -1,20 +1,20 @@
-<form class="form-horizontal col-sm-4 col-sm-offset-1">
-	<div class="form-group">
-		<h2 class="text-center">Login page</h2>
+<form>
+	<div>
+		<h2>Login page</h2>
 	</div>
-	<div class="form-group">
+	<div>
 	    <div>
-	    	<input type="text" name="username" ng-model="user.username" class="form-control input-lg" placeholder="Username">
+	    	<input type="text" name="username" ng-model="user.username" placeholder="Username">
 	    </div>
   	</div>
-	<div class="form-group">
+	<div>
 		<div>
-	    	<input type="password" name="password" ng-model="user.password" class="form-control input-lg" placeholder="Password"/>
+	    	<input type="password" name="password" ng-model="user.password" placeholder="Password"/>
 	    </div>
 	</div>
 
-	<div class="form-group pull-right">
-		<button class="btn btn-lg btn-primary" ng-click="login(user)">Login</button>
-		<a class="btn btn-md btn-link" href="#/register">Register</a>
+	<div>
+		<button ng-click="login(user)">Login</button>
+		<a href="#/register">Register</a>
 	</div>
 </form>

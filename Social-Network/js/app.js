@@ -1,4 +1,4 @@
-var socialNetwork = angular.module('socialNetworkApp', ['ngRoute', 'ngStorage', 'naif.base64', 'ui.bootstrap']);
+var socialNetwork = angular.module('socialNetworkApp', ['ngRoute', 'ngStorage', 'naif.base64']);
 
 socialNetwork.constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net/api/');
 
@@ -32,7 +32,7 @@ socialNetwork.config(function($routeProvider) {
 	});
 
 	$routeProvider.when('/users/:username/', {
-		templateUrl: 'templates/userWall.html'
+		templateUrl: 'templates/foreignUserWall.html'
 	});
 
 	$routeProvider.otherwise({

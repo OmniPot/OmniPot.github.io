@@ -7,10 +7,10 @@ socialNetwork.factory('friendsData', function($http, baseServiceUrl, authenticat
 		});
 	}
 
-	function getUserFriendsPreview(username) {
+	function getOwnFriendsPreview() {
 		return $http({
 			method: 'GET',
-			url: baseServiceUrl + 'users/' + username + '/friends',
+			url: baseServiceUrl + 'me/friends/preview',
 			headers: authentication.getHeaders()
 		});
 	}
@@ -23,9 +23,18 @@ socialNetwork.factory('friendsData', function($http, baseServiceUrl, authenticat
 		});
 	}
 
+	function getUserFriendsPreview(username) {
+		return $http({
+			method: 'GET',
+			url: baseServiceUrl + 'users/' + username + '/friends/preview',
+			headers: authentication.getHeaders()
+		});
+	}
+
 	return {
 		getOwnFriends: getOwnFriends,
+		getOwnFriendsPreview: getOwnFriendsPreview,
 		getUserFriends: getUserFriends,
-		getUserFriendsPreview: getUserFriendsPreview,
+		getUserFriendsPreview: getUserFriendsPreview
 	}
 });
