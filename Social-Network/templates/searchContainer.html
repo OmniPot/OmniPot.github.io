@@ -1,0 +1,10 @@
+<form name="searchForm">
+	<input type="test" name="search" ng-model="searchValue" ng-change="applySearch(searchValue)" />
+</form>
+<ul>
+	<li ng-repeat="foundUser in foundUsers">
+		<img ng-src="{{foundUser.profileImageData}}" alt="">
+		<span>{{foundUser.name}}</span>
+		<span>{{(foundUser.gender == 0 || foundUser.gender == 1) ? 'Male' : 'Female'}}</span>
+	</li>
+</ul>

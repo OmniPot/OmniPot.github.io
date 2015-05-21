@@ -17,9 +17,9 @@
     <body>
         <div id="notyContainer"></div>
 
-        <header id="appHeader" class="container cl-lg-10 cl-lg-offset-3" ng-if="authenticated()" logged-in-user-header></header>
+        <header id="appHeader" ng-if="authenticated()" logged-in-user-header></header>
 
-        <main id="appContent" class="container" ng-view=""></div>
+        <main id="appContent" ng-view=""></div>
 
         <!-- Application scripts -->
         <script src="js/app.js"></script>
@@ -31,30 +31,34 @@
         <script src="js/controllers/authorization/logoutController.js"></script>
         <script src="js/controllers/authorization/registerController.js"></script>
 
-        <script src="js/controllers/profile/editProfileController.js"></script>
-        <script src="js/controllers/profile/loggedInUserHeaderController.js"></script>
-        <script src="js/controllers/profile/foreignUserHeaderController.js"></script>  
+        <script src="js/controllers/users/editProfileController.js"></script>
+        <script src="js/controllers/users/loggedInUserHeaderController.js"></script>
+        <script src="js/controllers/users/foreignUserHeaderController.js"></script>  
+        <script src="js/controllers/users/searchUsersController.js"></script>  
 
         <script src="js/controllers/posts/feedPostsController.js"></script>
         <script src="js/controllers/posts/foreignUserWallPostsController.js"></script>
 
         <script src="js/controllers/friends/feedFriendsController.js"></script>
         <script src="js/controllers/friends/foreignUserFriendsController.js"></script>
+        <script src="js/controllers/friends/friendRequestsController.js"></script>
         
         <!-- Services -->
         <script src="js/services/authentication.js"></script>
-        <script src="js/services/data/userData.js"></script>
+        <script src="js/services/data/usersData.js"></script>
         <script src="js/services/data/profileData.js"></script>
         <script src="js/services/data/postsData.js"></script>
         <script src="js/services/data/friendsData.js"></script>
 
         <!-- Directives -->
         <script src="js/directives/loggedInUserHeader.js"></script>
-        <script src="js/directives/foreignUserWallHeader.js"></script>
-        <script src="js/directives/feedFriends.js"></script>
-        <script src="js/directives/foreignUserFriendsPreview.js"></script>  
+        <script src="js/directives/feedFriendsPreview.js"></script>
         <script src="js/directives/feedPosts.js"></script>  
+        <script src="js/directives/friendRequests.js"></script>  
+
+        <script src="js/directives/foreignUserWallHeader.js"></script>
+        <script src="js/directives/foreignUserFriendsPreview.js"></script>  
         <script src="js/directives/foreignUserWallPosts.js"></script>
-<!--         <script src="js/directives/userFriendsPreview.js"></script>   
- -->    </body>
+        <script src="js/directives/usersSearch.js"></script>
+    </body>
 </html>

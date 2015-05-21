@@ -1,9 +1,8 @@
-socialNetwork.controller('registerController', function($scope, $location, userData) {
+socialNetwork.controller('registerController', function($scope, $location, usersData) {
 	$scope.user = {};
-	$scope.user.gender = 'Other';
 
 	$scope.register = function(user) {
-		userData.register(user).then(
+		usersData.register(user).then(
 			function success(data) {
 				socialNetwork.noty.success('Successfully registered. You are now logged in.');
 				$location.path('/home')

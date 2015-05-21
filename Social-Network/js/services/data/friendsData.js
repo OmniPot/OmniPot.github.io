@@ -31,10 +31,46 @@ socialNetwork.factory('friendsData', function($http, baseServiceUrl, authenticat
 		});
 	}
 
+	function getFriendRequests() {
+		return $http({
+			method: 'GET',
+			url: baseServiceUrl + 'me/requests',
+			headers: authentication.getHeaders()
+		});
+	}
+
+	function approveFriendRequest(requestId) {
+		return $http({
+			method: 'PUT',
+			url: baseServiceUrl + 'me/requests/' + requestId + '?status=approved',
+			headers: authentication.getHeaders()
+		});
+	}
+
+	function rejectFriendRequest(requestId) {
+		return $http({
+			method: 'PUT',
+			url: baseServiceUrl + 'me/requests/' + requestId + '?status=rejected',
+			headers: authentication.getHeaders()
+		});
+	}
+
+	function sendFriendRequest(username) {
+		return $http({
+			method: 'POST',
+			url: baseServiceUrl + 'me/requests/' + username,
+			headers: authentication.getHeaders()
+		});
+	}
+
 	return {
 		getOwnFriends: getOwnFriends,
 		getOwnFriendsPreview: getOwnFriendsPreview,
 		getUserFriends: getUserFriends,
-		getUserFriendsPreview: getUserFriendsPreview
+		getUserFriendsPreview: getUserFriendsPreview,
+		getFriendRequests: getFriendRequests,
+		approveFriendRequest: approveFriendRequest,
+		rejectFriendRequest: rejectFriendRequest,
+		sendFriendRequest: sendFriendRequest
 	}
 });

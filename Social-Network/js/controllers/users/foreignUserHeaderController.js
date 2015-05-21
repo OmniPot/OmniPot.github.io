@@ -1,5 +1,5 @@
-socialNetwork.controller('foreignUserHeaderController', function($scope, $routeParams, userData) {
-	userData.getUserData($routeParams.username).then(
+socialNetwork.controller('foreignUserHeaderController', function($scope, $routeParams, usersData) {
+	usersData.getUserData($routeParams.username).then(
 		function success(foreignUserProfile) {
 			foreignUserProfile.data = $scope.checkForImagesData(foreignUserProfile.data);
 			$scope.fetchForeignUserFriends = foreignUserProfile.data.isFriend;

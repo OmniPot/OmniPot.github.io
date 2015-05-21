@@ -1,0 +1,9 @@
+<li ng-repeat="request in friendRequests">
+	<img ng-src="{{request.user.profileImageData}}" alt="">
+	<span>{{request.user.name}}{{request.user.gender}}</span>
+	<p>
+		<button ng-click="approveRequest(request.id)">Accept</button>
+		<button ng-click="rejectRequest(request.id)">Reject</button>
+	</p>
+</li>
+<a href="" ng-model="requestsVisible" ng-click="requestsVisible = !requestsVisible">Hide requests</a>

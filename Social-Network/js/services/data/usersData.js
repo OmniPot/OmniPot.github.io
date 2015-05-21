@@ -1,4 +1,4 @@
-socialNetwork.factory('userData', function($http, baseServiceUrl, authentication) {
+socialNetwork.factory('usersData', function($http, baseServiceUrl, authentication) {
 	function login(loginData) {
 		return $http({
 				method: 'POST',
@@ -48,11 +48,20 @@ socialNetwork.factory('userData', function($http, baseServiceUrl, authentication
 		});
 	}
 
+	function searchUserByName(searchValue) {
+		return $http({
+			method: 'GET',
+			url: baseServiceUrl + 'users/search?searchTerm=' + searchValue,
+			headers: authentication.getHeaders()
+		});
+	}
+
 	return {
 		login: login,
 		logout: logout,
 		register: register,
 		getUserData: getUserFullData,
-		getUserPreview: getUserPreviewData
+		getUserPreview: getUserPreviewData,
+		searchUserByName: searchUserByName
 	}
 });

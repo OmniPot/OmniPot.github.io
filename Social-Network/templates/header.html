@@ -4,11 +4,16 @@
 
 <nav>
 	<a href="#/users/{{loggedUserProfile.username}}">{{loggedUserProfile.name}}({{loggedUserProfile.username}})</a>
-	<ul >
+	<ul>
 		<li><a href="#/home">Home</a></li>
 		<li><a href="#/profile">Edit profile</a></li>
-		<li><a href="" ng-click="displayPendingRequests()">Friendship Requests</a></li>
+		<li>
+			<a href="" ng-click="getFriendRequests()">Friendship Requests</a>
+			<ul friend-requests ng-show="requestsVisible"></ul>
+		</li>
+
 		<li><a href="#/profile/password">Change Password</a></li>
 		<li><a href="#/logout">Logout</a></li>
 	</ul>
+	<div users-search></div>
 </nav>
