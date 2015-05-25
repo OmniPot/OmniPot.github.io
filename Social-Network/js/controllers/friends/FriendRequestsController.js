@@ -1,4 +1,4 @@
-socialNetwork.controller('LoggedUserFriendRequestsController', function($scope, friendsData) {
+socialNetwork.controller('FriendRequestsController', function($scope, friendsData) {
 	$scope.getFriendRequests = function() {
 		friendsData.getFriendRequests().then(
 			function success(requests) {
@@ -36,16 +36,5 @@ socialNetwork.controller('LoggedUserFriendRequestsController', function($scope, 
 			function error(error) {
 				socialNetwork.noty.error("Unable to reject friend request.");
 			});
-	}
-
-	$scope.sendRequest = function(username) {
-		friendsData.sendFriendRequest(username).then(
-			function success(result) {
-				socialNetwork.noty.success("Friend request successfully sent.");
-				$scope.getFriendRequests();
-			},
-			function error(error) {
-				socialNetwork.noty.error("Unable to send friend request.");
-			})
 	}
 });

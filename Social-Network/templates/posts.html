@@ -13,7 +13,7 @@
 	<section>
 		<p>{{post.postContent}}</p>
 	</section>
-	<footer>
+	<section>
 		<p>
 			<span>Likes: {{post.likesCount}}</span>
 			<span>Comments: {{post.totalCommentsCount}}</span>
@@ -23,12 +23,10 @@
 				<button ng-if="post.liked" ng-click="unlikePost(post.id)">Unlike&nbsp;&#128078;</button>
 			</span>
 
-			<span ng-if="post.commentOptionAvailable">
-				<button ng-click="commentPost(postId)">Comment&nbsp;&#x270E;</button>
-			</span>
-			<span ng-if="post.deleteButtonAvailable">
+			<span ng-if="post.deleteOptionAvailable">
 				<button ng-click="deletePost(post.id)">Delete&nbsp;&#x2718;</button>
 			</span>
 		</p>
-	</footer>
+	</section>
+	<section post-comments></section>
 </div>

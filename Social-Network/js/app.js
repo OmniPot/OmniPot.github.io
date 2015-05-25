@@ -22,6 +22,10 @@ socialNetwork.config(function($routeProvider) {
 		templateUrl: 'templates/register.html'
 	});
 
+	$routeProvider.when('/home', {
+		templateUrl: 'templates/home.html'
+	});
+
 	$routeProvider.when('/profile', {
 		controller: 'LoggedUserEditProfileController',
 		templateUrl: 'templates/editProfile.html'
@@ -30,10 +34,6 @@ socialNetwork.config(function($routeProvider) {
 	$routeProvider.when('/profile/password', {
 		controller: 'LoggedUserEditProfileController',
 		templateUrl: 'templates/editPassword.html'
-	});
-
-	$routeProvider.when('/home', {
-		templateUrl: 'templates/home.html'
 	});
 
 	$routeProvider.when('/users/:username/', {

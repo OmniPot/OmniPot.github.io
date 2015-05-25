@@ -1,4 +1,4 @@
-socialNetwork.controller('UserPostsController', function($scope, $routeParams, postsData) {
+socialNetwork.controller('PostsController', function($scope, $location, $routeParams, postsData) {
 	var currentUserUsername = $scope.authentication.getUserData().username;
 
 	$scope.getUserWallPosts = function(username) {
@@ -19,7 +19,33 @@ socialNetwork.controller('UserPostsController', function($scope, $routeParams, p
 			});
 	}
 
-	$scope.getUserWallPosts($routeParams.username);
+	$scope.getNewsFeedPosts = function() {
+		postsData.getNewsFeedPosts().then(
+			function success(newsFeedPosts) {
+				newsFeedPosts.data.forEach(function(post) {
+					post.author = $scope.checkForImagesData(post.author);
+
+					post.wallOwner.name = postsData.processPostHeader(post, currentUserUsername);
+
+					post = postsData.getAvailablePostOptions(post, currentUserUsername);
+				});
+
+				$scope.posts = newsFeedPosts.data;
+			},
+			function error(error) {
+				socialNetwork.noty.error('Error fetching news feed information.');
+			});
+	}
+
+	$scope.loadPosts = function() {
+		if ($location.path().indexOf('/users/') > -1) {
+			$scope.getUserWallPosts($routeParams.username);
+		} else if ($location.path().indexOf('/home') > -1) {
+			$scope.getNewsFeedPosts();
+		}
+	}
+
+	$scope.loadPosts();
 
 	$scope.addNewPost = function(postContent) {
 		var postData = {
@@ -41,7 +67,7 @@ socialNetwork.controller('UserPostsController', function($scope, $routeParams, p
 		postsData.deletePost(postId).then(
 			function success(result) {
 				socialNetwork.noty.success("Successfully deleted post.");
-				$scope.getUserWallPosts($routeParams.username);
+				$scope.loadPosts();
 			},
 			function error(error) {
 				socialNetwork.noty.error("Error while deleting post.");
@@ -52,7 +78,7 @@ socialNetwork.controller('UserPostsController', function($scope, $routeParams, p
 		postsData.likePost(postId).then(
 			function success(result) {
 				socialNetwork.noty.success("Successfully liked post.");
-				$scope.getUserWallPosts($routeParams.username);
+				$scope.loadPosts();
 			},
 			function error(error) {
 				socialNetwork.noty.error("Error while liking post.");
@@ -63,7 +89,7 @@ socialNetwork.controller('UserPostsController', function($scope, $routeParams, p
 		postsData.unlikePost(postId).then(
 			function success(result) {
 				socialNetwork.noty.success("Successfully unliked post.");
-				$scope.getUserWallPosts($routeParams.username);
+				$scope.loadPosts();
 			},
 			function error(error) {
 				socialNetwork.noty.error("Error while unliking post.");

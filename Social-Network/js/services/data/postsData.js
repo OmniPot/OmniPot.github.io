@@ -52,11 +52,11 @@ socialNetwork.factory('postsData', function($http, baseServiceUrl, authenticatio
 	}
 
 	function getAvailablePostOptions(post, currentUserUsername) {
-		post.deleteButtonAvailable =
+		post.deleteOptionAvailable =
 			post.author.username == currentUserUsername ||
 			post.wallOwner.username == currentUserUsername;
 
-		if (post.author.isFriend || post.wallOwner.isFriend || post.deleteButtonAvailable) {
+		if (post.author.isFriend || post.wallOwner.isFriend || post.deleteOptionAvailable) {
 			post.likeDislikeOptionAvailable = true;
 			post.commentOptionAvailable = true;
 		}
