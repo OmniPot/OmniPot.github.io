@@ -1,0 +1,6 @@
+<a href="#/users/{{userUsername}}/" ng-mouseenter="getUserPreview(userUsername)">{{userName}}</a>
+<div ng-if="userPreviewShown" ng-mouseleave="hideUserPreview()">
+	<img ng-src="{{previewedUser.profileImageData}}" alt="" />
+	<span>{{previewedUser.name}}</span>
+	<button ng-if="canInviteUser" ng-click="sendFriendRequest()">Invite</button>
+</div>

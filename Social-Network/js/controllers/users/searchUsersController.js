@@ -1,4 +1,4 @@
-socialNetwork.controller('searchUsersController', function($scope, usersData) {
+socialNetwork.controller('SearchUsersController', function($scope, usersData) {
 	$scope.applySearch = function(searchValue) {
 		if ($scope.searchValue != null && $scope.searchValue != '') {
 			usersData.searchUserByName(searchValue).then(

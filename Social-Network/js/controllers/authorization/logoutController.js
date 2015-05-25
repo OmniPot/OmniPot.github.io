@@ -1,9 +1,10 @@
-socialNetwork.controller('logoutController', function($scope, $location, usersData) {
+socialNetwork.controller('LogoutController', function($scope, $rootScope, $location, usersData) {
 	(function() {
 		usersData.logout().then(
-			function() {
+			function success() {
 				socialNetwork.noty.success('Successfully logged out.');
-				$location.path('/welcome');
+				$rootScope.loggedUserProfile = {};
+				$location.path('/welcome');				
 			});
 	})();
 });

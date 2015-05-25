@@ -8,23 +8,28 @@ socialNetwork.config(function($routeProvider) {
 	});
 
 	$routeProvider.when('/login', {
-		controller: 'loginController',
+		controller: 'LoginController',
 		templateUrl: 'templates/login.html'
 	});
 
 	$routeProvider.when('/logout', {
-		controller: 'logoutController',
+		controller: 'LogoutController',
 		templateUrl: 'templates/welcome.html'
 	});
 
 	$routeProvider.when('/register', {
-		controller: 'registerController',
+		controller: 'RegisterController',
 		templateUrl: 'templates/register.html'
 	});
 
 	$routeProvider.when('/profile', {
-		controller: 'editProfileController',
+		controller: 'LoggedUserEditProfileController',
 		templateUrl: 'templates/editProfile.html'
+	});
+
+	$routeProvider.when('/profile/password', {
+		controller: 'LoggedUserEditProfileController',
+		templateUrl: 'templates/editPassword.html'
 	});
 
 	$routeProvider.when('/home', {
@@ -32,7 +37,7 @@ socialNetwork.config(function($routeProvider) {
 	});
 
 	$routeProvider.when('/users/:username/', {
-		templateUrl: 'templates/foreignUserWall.html'
+		templateUrl: 'templates/userWall.html'
 	});
 
 	$routeProvider.otherwise({

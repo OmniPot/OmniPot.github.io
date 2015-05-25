@@ -1,17 +1,17 @@
 <div>
-	<img ng-src="{{loggedUserProfile.profileImageData}}">
+	<img ng-src="{{loggedUserHeaderData.profileImageData}}">
 </div>
 
 <nav>
-	<a href="#/users/{{loggedUserProfile.username}}">{{loggedUserProfile.name}}({{loggedUserProfile.username}})</a>
+	<a href="#/users/{{loggedUserHeaderData.username}}">{{loggedUserHeaderData.name}}({{loggedUserHeaderData.username}})</a>
 	<ul>
 		<li><a href="#/home">Home</a></li>
+		<li><a href="#/users/{{loggedUserHeaderData.username}}/">Wall</a></li>
 		<li><a href="#/profile">Edit profile</a></li>
 		<li>
 			<a href="" ng-click="getFriendRequests()">Friendship Requests</a>
 			<ul friend-requests ng-show="requestsVisible"></ul>
 		</li>
-
 		<li><a href="#/profile/password">Change Password</a></li>
 		<li><a href="#/logout">Logout</a></li>
 	</ul>

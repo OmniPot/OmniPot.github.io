@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="socialNetworkApp" ng-controller="appController">
+<html ng-app="socialNetworkApp" ng-controller="AppController">
     <head lang="en">
         <meta charset="UTF-8">
         <title>Social Network</title>
@@ -17,7 +17,7 @@
     <body>
         <div id="notyContainer"></div>
 
-        <header id="appHeader" ng-if="authenticated()" logged-in-user-header></header>
+        <header id="appHeader" ng-if="authentication.isLoggedIn()" logged-user-header></header>
 
         <main id="appContent" ng-view=""></div>
 
@@ -26,22 +26,23 @@
         <script src="js/noty.js"></script>
 
         <!-- Controllers -->
-        <script src="js/controllers/appController.js"></script>
-        <script src="js/controllers/authorization/loginController.js"></script>
-        <script src="js/controllers/authorization/logoutController.js"></script>
-        <script src="js/controllers/authorization/registerController.js"></script>
+        <script src="js/controllers/AppController.js"></script>
+        <script src="js/controllers/authorization/LoginController.js"></script>
+        <script src="js/controllers/authorization/LogoutController.js"></script>
+        <script src="js/controllers/authorization/RegisterController.js"></script>
 
-        <script src="js/controllers/users/editProfileController.js"></script>
-        <script src="js/controllers/users/loggedInUserHeaderController.js"></script>
-        <script src="js/controllers/users/foreignUserHeaderController.js"></script>  
-        <script src="js/controllers/users/searchUsersController.js"></script>  
+        <script src="js/controllers/users/LoggedUserEditProfileController.js"></script>
+        <script src="js/controllers/users/LoggedUserHeaderController.js"></script>
+        <script src="js/controllers/users/SearchUsersController.js"></script>
+        <script src="js/controllers/users/UserHeaderController.js"></script>
+        <script src="js/controllers/users/UserPreviewController.js"></script>
 
-        <script src="js/controllers/posts/feedPostsController.js"></script>
-        <script src="js/controllers/posts/foreignUserWallPostsController.js"></script>
+        <script src="js/controllers/posts/LoggedUserPostsController.js"></script>
+        <script src="js/controllers/posts/UserPostsController.js"></script>
 
-        <script src="js/controllers/friends/feedFriendsController.js"></script>
-        <script src="js/controllers/friends/foreignUserFriendsController.js"></script>
-        <script src="js/controllers/friends/friendRequestsController.js"></script>
+        <script src="js/controllers/friends/LoggedUserFriendsPreviewController.js"></script>
+        <script src="js/controllers/friends/LoggedUserFriendRequestsController.js"></script>
+        <script src="js/controllers/friends/UserFriendsPreviewController.js"></script>
         
         <!-- Services -->
         <script src="js/services/authentication.js"></script>
@@ -51,14 +52,15 @@
         <script src="js/services/data/friendsData.js"></script>
 
         <!-- Directives -->
-        <script src="js/directives/loggedInUserHeader.js"></script>
-        <script src="js/directives/feedFriendsPreview.js"></script>
-        <script src="js/directives/feedPosts.js"></script>  
+        <script src="js/directives/loggedUserHeader.js"></script>
+        <script src="js/directives/loggedUserPosts.js"></script>
+        <script src="js/directives/loggedUserFriendsPreview.js"></script>  
         <script src="js/directives/friendRequests.js"></script>  
 
-        <script src="js/directives/foreignUserWallHeader.js"></script>
-        <script src="js/directives/foreignUserFriendsPreview.js"></script>  
-        <script src="js/directives/foreignUserWallPosts.js"></script>
+        <script src="js/directives/userPosts.js"></script>
+        <script src="js/directives/userFriendsPreview.js"></script>  
+        <script src="js/directives/userHeader.js"></script>
         <script src="js/directives/usersSearch.js"></script>
+        <script src="js/directives/userPreview.js"></script>
     </body>
 </html>

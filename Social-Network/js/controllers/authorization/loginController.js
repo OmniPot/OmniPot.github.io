@@ -1,7 +1,7 @@
-socialNetwork.controller('loginController', function($scope, $location, usersData) {
+socialNetwork.controller('LoginController', function($scope, $rootScope, $location, usersData) {
 	$scope.login = function(user) {
 		usersData.login(user).then(
-			function success(data) {
+			function success(userProfile) {
 				socialNetwork.noty.success('Successfully logged in.')
 				$location.path('/home')
 			},

@@ -1,7 +1,13 @@
 <div ng-repeat="post in posts">
 	<header>
 		<img ng-src="{{post.author.profileImageData}}" />
-		<h4>{{post.author.name}}</h4>
+		
+		<div>
+			<span user-preview user-username="post.author.username" user-name="post.author.name"></span>
+			<span> posted to </span>
+			<span user-preview user-username="post.wallOwner.username" user-name="post.wallOwner.name"></span>
+			<span> wall</span>
+		</div>
 		<dt>{{post.date}}</dt>
 	</header>
 	<section>
@@ -9,8 +15,20 @@
 	</section>
 	<footer>
 		<p>
-			<span>{{post.likesCount}} <button>Like</button></span>
-			<span>{{post.totalCommentsCount}} <button>Comment</button></span>
+			<span>Likes: {{post.likesCount}}</span>
+			<span>Comments: {{post.totalCommentsCount}}</span>
+
+			<span ng-if="post.likeDislikeOptionAvailable">
+				<button ng-if="!post.liked" ng-click="likePost(post.id)">Like&nbsp;&#128077;</button>
+				<button ng-if="post.liked" ng-click="unlikePost(post.id)">Unlike&nbsp;&#128078;</button>
+			</span>
+
+			<span ng-if="post.commentOptionAvailable">
+				<button ng-click="commentPost(postId)">Comment&nbsp;&#x270E;</button>
+			</span>
+			<span ng-if="post.deleteButtonAvailable">
+				<button ng-click="deletePost(post.id)">Delete&nbsp;&#x2718;</button>
+			</span>
 		</p>
 	</footer>
 </div>

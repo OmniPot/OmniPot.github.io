@@ -1,10 +1,11 @@
-socialNetwork.controller('appController', function($scope, authentication) {
-	$scope.authenticated = function() {
-		return authentication.isLoggedIn();
-	}
+socialNetwork.controller('AppController', function($scope, authentication) {
+	$scope.authentication = authentication;
 
 	$scope.formatImageString = function(data) {
-		return 'data:image/jpeg;base64,' + data;
+		if (data) {
+			return 'data:image/jpeg;base64,' + data;
+		}
+		return null;
 	}
 
 	$scope.checkForImagesData = function(userData) {

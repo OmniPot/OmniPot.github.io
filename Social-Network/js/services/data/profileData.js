@@ -16,8 +16,18 @@ socialNetwork.factory('profileData', function($http, baseServiceUrl, authenticat
 		});
 	}
 
+	function editPassword(passwordData) {
+		return $http({
+			method: 'PUT',
+			url: baseServiceUrl + 'me/ChangePassword',
+			headers: authentication.getHeaders(),
+			data: passwordData
+		});
+	}
+
 	return {
 		getProfileData: getOwnProfileData,
-		editProfileData: editOwnProfileData
+		editProfileData: editOwnProfileData,
+		editPassword: editPassword
 	}
 });

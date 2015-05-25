@@ -3,8 +3,7 @@
 </form>
 <ul>
 	<li ng-repeat="foundUser in foundUsers">
-		<img ng-src="{{foundUser.profileImageData}}" alt="">
-		<span>{{foundUser.name}}</span>
-		<span>{{(foundUser.gender == 0 || foundUser.gender == 1) ? 'Male' : 'Female'}}</span>
+		<img ng-src="{{foundUser.profileImageData}}" alt="" />
+		<span user-preview user-username="foundUser.username" user-name="foundUser.name"></span>
 	</li>
 </ul>

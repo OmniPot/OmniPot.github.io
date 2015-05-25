@@ -1,6 +1,4 @@
-socialNetwork.controller('registerController', function($scope, $location, usersData) {
-	$scope.user = {};
-
+socialNetwork.controller('RegisterController', function($scope, $location, usersData) {
 	$scope.register = function(user) {
 		usersData.register(user).then(
 			function success(data) {

@@ -30,7 +30,7 @@
 		</div>
 		<div>
 			<div>
-		    	<img ng-src="{{editedProfileData.coverImageData}}" base-sixty-four-image="editedProfileData.coverImageData" />
+		    	<img ng-if="editedProfileData" ng-src="{{editedProfileData.coverImageData}}" base-sixty-four-image="editedProfileData.coverImageData" />
 		    	<input type="file" ng-model="editedProfileData.coverImageData" base-sixty-four-input/>
 		    </div>
 		</div>
