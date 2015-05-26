@@ -1,7 +1,6 @@
 socialNetwork.controller('AppController', function($scope, authentication) {
 	$scope.authentication = authentication;
-
-
+	
 	$scope.formatImageString = function(data) {
 		if (data) {
 			return 'data:image/jpeg;base64,' + data;

@@ -1,10 +1,7 @@
 <li ng-repeat="request in friendRequests">
 	<a href="#/users/{{request.user.username}}">
 		<img ng-src="{{request.user.profileImageData}}" alt="">
-		<span>
-			<a href="#/users/{{request.user.username}}/">{{request.user.name}}</a>
-			<span> {{request.user.gender}} wants to be your friend.</span>
-		</span>
+		<span>{{request.user.name}}</span>
 	</a>
 	<span>
 		<button ng-click="approveRequest(request.id)">Accept</button>

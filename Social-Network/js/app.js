@@ -40,6 +40,11 @@ socialNetwork.config(function($routeProvider) {
 		templateUrl: 'templates/userWall.html'
 	});
 
+	$routeProvider.when('/users/:username/friends', {
+		controller: 'FriendsFullListController',
+		templateUrl: 'templates/friendsFullList.html'
+	});
+
 	$routeProvider.otherwise({
 		redirectTo: '/welcome'
 	});

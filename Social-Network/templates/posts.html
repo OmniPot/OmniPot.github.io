@@ -14,7 +14,7 @@
 		<p>{{post.postContent}}</p>
 	</section>
 	<section>
-		<p>
+		<span>
 			<span>Likes: {{post.likesCount}}</span>
 			<span>Comments: {{post.totalCommentsCount}}</span>
 
@@ -26,7 +26,9 @@
 			<span ng-if="post.deleteOptionAvailable">
 				<button ng-click="deletePost(post.id)">Delete&nbsp;&#x2718;</button>
 			</span>
-		</p>
+		</span>
 	</section>
 	<section post-comments></section>
 </div>
+
+<h2 ng-if="posts.length == 0">No posts on this user's wall. :/</h2>

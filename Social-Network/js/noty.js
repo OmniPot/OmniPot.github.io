@@ -7,7 +7,7 @@ socialNetwork.noty = (function () {
 			$('#notyContainer').noty({ text: text, timeout: 2000, type: 'success', killer: true, maxVisible: 2, layout:'top'  });
 		},
 		warn: function (text) {
-			$('#notyContainer').noty({ text: text, timeout: 2000, type: 'warning', killer: true, maxVisible: 2, layout:'top'  });
+			$('#notyContainer').noty({ text: text, timeout: 3000, type: 'warning', killer: true, maxVisible: 2, layout:'top'  });
 		}
 	}
 

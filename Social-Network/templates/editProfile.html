@@ -1,5 +1,5 @@
 <div>
-	<form >
+	<form>
 		<div>
 			<h3>Edit profile information</h3>
 		</div>
@@ -21,22 +21,18 @@
 		</div>
 	</form>
 
-	<form >
-		<div >
-			<div>
-		    	<img ng-src="{{editedProfileData.profileImageData}}" base-sixty-four-image="editedProfileData.profileImageData" />
-		    	<input type="file" ng-model="editedProfileData.profileImageData" base-sixty-four-input/>
-		    </div>
+	<form>
+		<div>
+	    	<img ng-src="{{editedProfileData.profileImageData}}" base-sixty-four-image="editedProfileData.profileImageData" />
+	    	<input type="file" ng-model="editedProfileData.profileImageData" base-sixty-four-input/>
 		</div>
 		<div>
-			<div>
-		    	<img ng-if="editedProfileData" ng-src="{{editedProfileData.coverImageData}}" base-sixty-four-image="editedProfileData.coverImageData" />
-		    	<input type="file" ng-model="editedProfileData.coverImageData" base-sixty-four-input/>
-		    </div>
+	    	<img ng-if="editedProfileData" ng-src="{{editedProfileData.coverImageData}}" base-sixty-four-image="editedProfileData.coverImageData" />
+	    	<input type="file" ng-model="editedProfileData.coverImageData" base-sixty-four-input/>
 		</div>
 	</form>
 
-	<div >
+	<div>
 		<button ng-click="editOwnProfile(editedProfileData)">Submit changes</button>
 	</div>
 </div>

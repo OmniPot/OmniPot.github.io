@@ -1,4 +1,4 @@
-socialNetwork.directive('userPreview', ['$document', function() {
+socialNetwork.directive('userPreview', function() {
 	return {
 		restrict: 'A',
 		templateUrl: 'templates/userPreview.html',
@@ -8,4 +8,4 @@ socialNetwork.directive('userPreview', ['$document', function() {
 			userName: '=userName',
 		}
 	}
-}]);
+});

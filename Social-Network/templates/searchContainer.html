@@ -6,4 +6,5 @@
 		<img ng-src="{{foundUser.profileImageData}}" alt="" />
 		<span user-preview user-username="foundUser.username" user-name="foundUser.name"></span>
 	</li>
+	<li ng-if="foundUsers.length == 0"><h2>No users found. :/</h2></li>
 </ul>
