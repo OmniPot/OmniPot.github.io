@@ -1,8 +1,8 @@
 socialNetwork.controller('UserHeaderController', function($scope, $routeParams, usersData) {
 	var currentUser = $scope.authentication.getUserData().username;
 
-	$scope.getUserData = function(currUserUsername) {
-		usersData.getUserData(currUserUsername).then(
+	$scope.getUserData = function(wallOwnerUsername) {
+		usersData.getUserData(wallOwnerUsername).then(
 			function success(wallOwnerProfile) {
 				wallOwnerProfile.data = $scope.checkForImagesData(wallOwnerProfile.data);
 

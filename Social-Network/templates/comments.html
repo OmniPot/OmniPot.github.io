@@ -4,6 +4,7 @@
 	<span>{{comment.commentContent}}</span>
 
 	<span ng-if="comment.likeDislikeOptionAvailable">
+		Likes: {{comment.likesCount}}
 		<button ng-if="!comment.liked" ng-click="likeComment(comment.id)">Like&nbsp;&#128077;</button>
 		<button ng-if="comment.liked" ng-click="unlikeComment(comment.id)">Unlike&nbsp;&#128078;</button>
 	</span>
@@ -12,6 +13,11 @@
 		<button ng-click="deleteComment(comment.id)">Delete&nbsp;&#x2718;</button>
 	</span>
 </div>
+
+<span ng-if="showMoreLessButtonAvailable">
+	<button ng-if="!allCommentsShown" ng-click="showAllComments()">Show More</button>
+	<button ng-if="allCommentsShown" ng-click="showLastThreeComments()">Show Less</button>
+</span>
 
 <span ng-if="post.commentOptionAvailable">
 	<input type="text" ng-model="commentContent">

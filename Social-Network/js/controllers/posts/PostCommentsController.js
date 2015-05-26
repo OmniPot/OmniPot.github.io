@@ -10,7 +10,16 @@ socialNetwork.controller('PostCommentsController', function($scope, commentsData
 					comment = commentsData.getAvailableCommentOptions($scope.post, comment, currentUserUsername);
 				});
 
-				$scope.comments = postComments.data;
+				$scope.showMoreLessButtonAvailable = false;
+				$scope.allCommentsShown = false;
+				$scope.fullComments = postComments.data;
+				$scope.showLastThreeComments();
+
+				if (postComments.data.length > 3) {
+					$scope.showMoreLessButtonAvailable = true;
+				} else {
+					$scope.showMoreLessButtonAvailable = false;
+				}
 			},
 			function error(error) {
 				socialNetwork.noty.error("Unable to fetch post comments data.");
@@ -18,6 +27,16 @@ socialNetwork.controller('PostCommentsController', function($scope, commentsData
 	}
 
 	$scope.getPostComments($scope.post);
+
+	$scope.showAllComments = function() {
+		$scope.allCommentsShown = true;
+		$scope.comments = $scope.fullComments;
+	}
+
+	$scope.showLastThreeComments = function() {
+		$scope.allCommentsShown = false;
+		$scope.comments = $scope.fullComments.slice(0, 3);
+	}
 
 	$scope.addComment = function(commentContent) {
 		commentsData.addPostComment($scope.post.id, commentContent).then(

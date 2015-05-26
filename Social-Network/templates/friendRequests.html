@@ -1,14 +1,16 @@
 <li ng-repeat="request in friendRequests">
 	<a href="#/users/{{request.user.username}}">
 		<img ng-src="{{request.user.profileImageData}}" alt="">
-		<p>
+		<span>
 			<a href="#/users/{{request.user.username}}/">{{request.user.name}}</a>
 			<span> {{request.user.gender}} wants to be your friend.</span>
-		</p>
+		</span>
 	</a>
-	<p>
+	<span>
 		<button ng-click="approveRequest(request.id)">Accept</button>
 		<button ng-click="rejectRequest(request.id)">Reject</button>
-	</p>
+	</span>
 </li>
-<a href="" ng-model="requestsVisible" ng-click="requestsVisible = !requestsVisible">Hide requests</a>
+<span>
+	<button href="" ng-click="hideRequests()">Hide requests</button>
+</span>

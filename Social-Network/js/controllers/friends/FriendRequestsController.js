@@ -9,12 +9,20 @@ socialNetwork.controller('FriendRequestsController', function($scope, friendsDat
 				});
 
 				$scope.friendRequests = requests.data;
-				$scope.requestsVisible = true;
+				$scope.showRequests();
 			},
 			function error(error) {
 				socialNetwork.noty.error("Unable to fetch friend requests.");
 			});;
 	};
+
+	$scope.showRequests = function () {
+		$scope.requestsVisible = true;
+	}
+
+	$scope.hideRequests = function () {
+		$scope.requestsVisible = false;
+	}
 
 	$scope.approveRequest = function(requestId) {
 		friendsData.approveFriendRequest(requestId).then(

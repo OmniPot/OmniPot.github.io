@@ -15,6 +15,14 @@ socialNetwork.factory('postsData', function($http, baseServiceUrl, authenticatio
 		});
 	}
 
+	// function getPostById(postId) {
+	// 	return $http({
+	// 		method: 'GET',
+	// 		url: baseServiceUrl + 'posts/' + postId,
+	// 		headers: authentication.getHeaders()
+	// 	});
+	// }
+
 	function addPost(postData) {
 		return $http({
 			method: 'POST',
@@ -83,6 +91,7 @@ socialNetwork.factory('postsData', function($http, baseServiceUrl, authenticatio
 	return {
 		getNewsFeedPosts: getNewsFeedPosts,
 		getUserWallPosts: getUserWallPosts,
+		// getPostById: getPostById,
 		addPost: addPost,
 		deletePost: deletePost,
 		likePost: likePost,
