@@ -1,6 +1,4 @@
 socialNetwork.controller('FriendRequestsController', function($scope, friendsData) {
-	var currentUserUsername = $scope.authentication.getUserData().username;
-
 	$scope.getFriendRequests = function() {
 		friendsData.getFriendRequests().then(
 			function success(requests) {

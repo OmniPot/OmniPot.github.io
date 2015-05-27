@@ -1,25 +1,36 @@
-<div ng-repeat="comment in comments">
-	<img ng-src="{{comment.author.profileImageData}}" style="width:50px" alt="">
-	<span user-preview user-username="comment.author.username" user-name="comment.author.name"></span>
-	<span>{{comment.commentContent}}</span>
+<div class="comment" ng-repeat="comment in comments">
+	<header class="commentHeader">
+		<img class="commentAuthorImage" ng-src="{{comment.author.profileImageData}}" alt="">
+		<div class="commentInfo">
+			<div class="commentAuthorName" user-preview user-username="comment.author.username" user-name="comment.author.name"></div>
+			<dt class="commentDate">{{comment.date | date: 'medium'}}</dt>
+		</div>
+	</header>
 
-	<span ng-if="comment.likeDislikeOptionAvailable">
-		Likes: {{comment.likesCount}}
-		<button ng-if="!comment.liked" ng-click="likeComment(comment.id)">Like&nbsp;&#128077;</button>
-		<button ng-if="comment.liked" ng-click="unlikeComment(comment.id)">Unlike&nbsp;&#128078;</button>
-	</span>
-	
-	<span ng-if="comment.deleteOptionAvailable">
-		<button ng-click="deleteComment(comment.id)">Delete&nbsp;&#x2718;</button>
-	</span>
+	<section class="commentContent">
+		<span>{{comment.commentContent}}</span>
+	</section>
+
+	<section class="commentOptions">
+		<span>Likes: {{comment.likesCount}}</span>
+
+		<div ng-if="comment.likeDislikeOptionAvailable">
+			<button ng-if="!comment.liked" ng-click="likeComment(comment.id)">Like&nbsp;&#128077;</button>
+			<button ng-if="comment.liked" ng-click="unlikeComment(comment.id)">Unlike&nbsp;&#128078;</button>
+		</div>
+
+		<div ng-if="comment.deleteOptionAvailable">
+			<button ng-click="deleteComment(comment.id)">Delete&nbsp;&#x2718;</button>
+		</div>
+	</section>
 </div>
 
-<span ng-if="showMoreLessButtonAvailable">
+<div class="showMoreButtonContainer" ng-if="showMoreLessButtonAvailable">
 	<button ng-if="!allCommentsShown" ng-click="showAllComments()">Show More</button>
 	<button ng-if="allCommentsShown" ng-click="showLastThreeComments()">Show Less</button>
-</span>
+</div>
 
-<span ng-if="post.commentOptionAvailable">
+<div class="commentPostContainer" ng-if="post.commentOptionAvailable">
 	<input type="text" ng-model="commentContent">
 	<button ng-click="addComment(commentContent)">Comment&nbsp;&#x270E;</button>
-</span>
+</div>

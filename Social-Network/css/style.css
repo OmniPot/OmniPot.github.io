@@ -1,3 +1,8 @@
+html {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 16px;
+}
+
 #notyContainer {
 	display: inline-block;
 	position: fixed;
@@ -6,10 +11,343 @@
 	bottom: 1em;
 }
 
-img {
-	width: 8em;
+body {
+	overflow-y: scroll;
 }
 
 a {
 	text-decoration: none;
+	font-weight: bold;
+	color: #7f0000;
+}
+
+ul {
+	display: inline-block;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+button {
+	font: normal normal 12px Verdana, Geneva, sans-serif !important;
+}
+
+/* Logged user header styles */
+
+.loggedUserHeader {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 60px;
+	margin: 0 auto;
+	background: #fff; 
+	box-shadow: #7f0000 0px 0px 10px;
+}
+
+.loggedUserHeader .profileImageContainer {
+	position: absolute;
+	width: 8%;
+	padding: 1%;
+	float: left;
+	background: #fff; 
+	border-radius: 2px;
+	box-shadow: #7f0000 0px 0px 10px;
+}
+
+.loggedUserHeader .profileImageContainer > img {
+	width: 100%;
+	max-width: 100%;
+	border: 1px solid #ccc;
+}
+
+.loggedUserHeader .usernameContainer {
+	position: absolute;
+	top: 20px;
+	left: 10%;
+	width: 25%;
+	padding: 0 1%;
+	text-align: left;
+}
+
+.loggedUserHeader .usernameContainer > a {
+	display: inline-block;
+	color: #222;
+}
+
+.loggedUserHeader .headerNavigation {
+	position: absolute;
+	top: 10px;
+	left: 40%;
+	width: 340px;
+}
+
+.loggedUserHeader .headerNavigation > ul {
+	width: 340px;
+}
+
+.loggedUserHeader .headerNavigation > ul > li {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	margin: 0 3%;
+}
+
+.loggedUserHeader .headerNavigation > ul > li > a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	font-size: .9em;
+}
+
+.loggedUserHeader .usersSearchContainer {
+	position: absolute;
+	right: 0;
+	top: 10%;
+	width: 30%;
+	height: 40px;
+}
+
+.loggedUserHeader .usersSearchContainer > span {
+	display: inline-block;
+	padding: 5px; 
+	vertical-align: middle;
+}
+
+.loggedUserHeader .usersSearchContainer > div {
+	display: inline-block;
+	vertical-align: middle;
+	width: 70%;
+	height: 30px;
+	padding: 2% 2%;
+}
+
+.loggedUserHeader .usersSearchContainer .searchForm {
+	width: 100%;
+	margin: 0 auto;
+	vertical-align: middle;
+}
+
+.loggedUserHeader .usersSearchContainer .searchForm > input {
+	width: 94%;
+	padding: 2%;
+	border: none;
+	font-size: 1.2em;
+	box-shadow: #7f0000 0px 0px 2px;
+}
+
+.searchResultList {
+	width: 98%;
+	background: #f8f8f8; 
+}
+
+.searchResult {
+	width: 97%;
+	height: 50px;
+	padding: 1%;
+	border: 1px solid #c0c0c0; 
+}
+
+.searchResult .resultImage {
+	display: inline-block;
+	width: 18%;
+	max-width: 18%;
+	vertical-align: middle;
+}
+
+.searchResult .resultName {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.loggedUserHeader .headerNavigation > ul > li > .home{
+	background: url('../resources/home-icon.png') no-repeat center center;
+	background-size: cover;
+}
+
+.loggedUserHeader .headerNavigation > ul > li > .wall{
+	background: url('../resources/wall-icon.png') no-repeat center center;
+	background-size: cover;
+}
+
+.loggedUserHeader .headerNavigation > ul > li > .editProfile{
+	background: url('../resources/edit-profile-icon.png') no-repeat center center;
+	background-size: cover;
+}
+
+.loggedUserHeader .headerNavigation > ul > li > .friendRequests{
+	background: url('../resources/friend-requests-icon.png') no-repeat center center;
+	background-size: cover;
+}
+
+.loggedUserHeader .headerNavigation > ul > li > .changePassword{
+	background: url('../resources/password-change-icon.png') no-repeat center center;
+	background-size: cover;
+}
+
+.loggedUserHeader .headerNavigation > ul > li > .logout{
+	background: url('../resources/logout-icon.png') no-repeat center center;
+	background-size: cover;
+}
+
+/* Content wrapper styles */
+
+.wrapper {
+	width: 84%;
+	margin: 6% 0 2% 12%;
+	padding: 1.5% 2%;
+	background: #fff;
+	color: #222;
+}
+
+.pageHeader > h1 {
+	padding: 0 2%;
+	margin: 0 0 1% 0;
+}
+
+/* Post styles */
+
+.post {
+	border-bottom: 2px solid #ccc;
+	padding: 1% 0%;
+}
+
+.postsContainer {
+	width: 55%;
+	padding: 2%;
+	float: left;
+}
+
+.postHeader .postAuthorImage {
+	display: inline-block;
+	vertical-align: middle;
+	width: 5em;
+	max-width: 5em;
+	padding: .5%;
+	background: #eee;
+}
+
+.postHeader .postInfo {
+	display: inline-block;
+	width: 70%;
+	vertical-align: middle;
+}
+
+.postDate {
+	font-size: .8em;
+}
+
+.postAuthor, .postWallOwner {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.postContent {
+	margin: 1% 0;
+}
+
+.postOptions {
+	font-size: .8em;
+}
+
+.postOptions > div {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 1% 0 0;
+}
+
+/* Comment styles */
+
+.comment {
+	display: inline-block;
+	width: 92%;
+	margin: 2% 0 0 8%;
+	font-size: .8em;
+}
+
+.commentInfo {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.commentHeader {
+	display: inline-block;
+	width: 100%;
+	vertical-align: middle;
+}
+
+.commentDate {
+	display: block;
+}
+
+.commentHeader .commentAuthorImage {
+	display: inline-block;
+	vertical-align: middle;
+	padding: .5%;
+	width: 3em;
+	max-width: 3em;	
+	background: #eee;
+}
+
+.commentContent {
+	margin: 1% 0;
+}
+
+.commentHeader .commentAuthorName {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.commentOptions > div, .commentOptions > span {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 1% 0 0;
+}
+
+.showMoreButtonContainer {
+	margin: 1% 0;
+}
+
+.commentPostContainer {
+	width: 100%;
+	margin: 1% 0 0 0;
+}
+
+.commentPostContainer > input {
+	width: 50%;
+}
+
+/* Friends preview styles */
+
+.friendsPreviewContainer {
+	width: 30%;
+	padding: 2% 2% 2% 4%;
+	float: left;
+	border-left: 2px solid #ccc;
+}
+
+/* User preview styles */
+
+.userPreviewContainer {
+	padding: .5%;
+	background: #fff;
+	position: absolute;
+	box-shadow: #222 0 0 2px;
+}
+
+.userPreviewImage, .userPreviewName {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.userPreviewImage {
+	width: 5em;
+	max-width: 5em;
+	border: 1px solid #ccc;
+}
+
+.clearfix:after {
+	clear: both;
+	display: block;
+	content: '';
 }

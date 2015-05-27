@@ -6,7 +6,7 @@
 	</span>
 	<ul>
 		<li ng-repeat="friend in friends | filter: {name: filterNameValue}">
-			<img ng-src="{{friend.profileImageData}}" alt="{{friend.name}}" />
+			<img ng-src="{{friend.profileImageData}}" alt="" />
 			<span user-preview user-username="friend.username" user-name="friend.name"></span>
 		</li>
 	</ul>

@@ -1,19 +1,26 @@
-<div>
+<div class="profileImageContainer">
 	<img ng-src="{{loggedUserHeaderData.profileImageData}}">
 </div>
 
-<nav>
+<div class="usernameContainer">
 	<a href="#/users/{{loggedUserHeaderData.username}}">{{loggedUserHeaderData.name}}({{loggedUserHeaderData.username}})</a>
+</div>
+
+<nav class="headerNavigation">
 	<ul>
-		<li><a href="#/home">Home</a></li>
-		<li><a href="#/users/{{loggedUserHeaderData.username}}/">Wall</a></li>
-		<li><a href="#/profile">Edit profile</a></li>
+		<li><a class="home" href="#/home"></a></li>
+		<li><a class="wall" href="#/users/{{loggedUserHeaderData.username}}/"></a></li>
+		<li><a class="editProfile"href="#/profile"></a></li>
 		<li>
-			<a href="" ng-click="getFriendRequests()">Friendship Requests</a>
+			<a class="friendRequests" href="" ng-click="getFriendRequests()"></a>
 			<ul friend-requests ng-show="requestsVisible"></ul>
 		</li>
-		<li><a href="#/profile/password">Change Password</a></li>
-		<li><a href="#/logout">Logout</a></li>
+		<li><a class="changePassword" href="#/profile/password"></a></li>
+		<li><a class="logout"href="#/logout"></a></li>
 	</ul>
-	<div users-search></div>
 </nav>
+
+<div class="usersSearchContainer">
+	<span>Search</span>
+	<div users-search></div>
+</div>

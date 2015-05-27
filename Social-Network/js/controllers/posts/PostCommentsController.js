@@ -6,7 +6,7 @@ socialNetwork.controller('PostCommentsController', function($scope, commentsData
 			function success(postComments) {
 				postComments.data.forEach(function(comment) {
 					comment.author = $scope.checkForImagesData(comment.author);
-
+					comment.date = new Date(comment.date);
 					comment = commentsData.getAvailableCommentOptions($scope.post, comment, currentUserUsername);
 				});
 

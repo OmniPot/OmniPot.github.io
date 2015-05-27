@@ -1,34 +1,34 @@
-<div ng-repeat="post in posts">
-	<header>
-		<img ng-src="{{post.author.profileImageData}}" />
+<div class="post" ng-repeat="post in posts">
+	<header class="postHeader">
+		<img class="postAuthorImage" ng-src="{{post.author.profileImageData}}" alt="" />
 		
-		<div>
-			<span user-preview user-username="post.author.username" user-name="post.author.name"></span>
+		<div class="postInfo">
+			<div class="postAuthor" user-preview user-username="post.author.username" user-name="post.author.name"></div>
 			<span> posted to </span>
-			<span user-preview user-username="post.wallOwner.username" user-name="post.wallOwner.name"></span>
+			<div class="postWallOwner" user-preview user-username="post.wallOwner.username" user-name="post.wallOwner.name"></div>
 			<span> wall</span>
+			<dt class="postDate" >{{post.date | date: 'medium'}}</dt>
 		</div>
-		<dt>{{post.date}}</dt>
 	</header>
-	<section>
-		<p>{{post.postContent}}</p>
-	</section>
-	<section>
-		<span>
-			<span>Likes: {{post.likesCount}}</span>
-			<span>Comments: {{post.totalCommentsCount}}</span>
 
-			<span ng-if="post.likeDislikeOptionAvailable">
-				<button ng-if="!post.liked" ng-click="likePost(post.id)">Like&nbsp;&#128077;</button>
-				<button ng-if="post.liked" ng-click="unlikePost(post.id)">Unlike&nbsp;&#128078;</button>
-			</span>
-
-			<span ng-if="post.deleteOptionAvailable">
-				<button ng-click="deletePost(post.id)">Delete&nbsp;&#x2718;</button>
-			</span>
-		</span>
+	<section class="postContent">
+		<span>{{post.postContent}}</span>
 	</section>
-	<section post-comments></section>
+
+	<section class="postOptions">
+		<span>Likes: {{post.likesCount}}</span>
+		<span>Comments: {{post.totalCommentsCount}}</span>
+
+		<div ng-if="post.likeDislikeOptionAvailable">
+			<button ng-if="!post.liked" ng-click="likePost(post.id)">Like&nbsp;&#128077;</button>
+			<button ng-if="post.liked" ng-click="unlikePost(post.id)">Unlike&nbsp;&#128078;</button>
+		</div>
+
+		<div ng-if="post.deleteOptionAvailable">
+			<button ng-click="deletePost(post.id)">Delete&nbsp;&#x2718;</button>
+		</div>
+	</section>
+	<section class="commentContainer" post-comments></section>
 </div>
 
 <h2 ng-if="posts.length == 0">No posts on this user's wall. :/</h2>

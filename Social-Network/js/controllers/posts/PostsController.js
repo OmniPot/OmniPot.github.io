@@ -6,9 +6,8 @@ socialNetwork.controller('PostsController', function($scope, $location, $routePa
 			function success(userWallPosts) {
 				userWallPosts.data.forEach(function(post) {
 					post.author = $scope.checkForImagesData(post.author);
-
 					post.wallOwner.name = postsData.processPostHeader(post, currentUserUsername);
-
+					post.date = new Date(post.date);
 					post = postsData.getAvailablePostOptions(post, currentUserUsername);
 				});
 
@@ -24,9 +23,7 @@ socialNetwork.controller('PostsController', function($scope, $location, $routePa
 			function success(newsFeedPosts) {
 				newsFeedPosts.data.forEach(function(post) {
 					post.author = $scope.checkForImagesData(post.author);
-
 					post.wallOwner.name = postsData.processPostHeader(post, currentUserUsername);
-
 					post = postsData.getAvailablePostOptions(post, currentUserUsername);
 				});
 
@@ -55,8 +52,8 @@ socialNetwork.controller('PostsController', function($scope, $location, $routePa
 
 		postsData.addPost(postData).then(
 			function success(result) {
-				socialNetwork.noty.success("Successfully posted to " + $scope.wallOwner + "\'s wall.");
-				$scope.getUserWallPosts($routeParams.username);
+				socialNetwork.noty.success("Successfully added post.");
+				$scope.loadPosts();
 			},
 			function error(error) {
 				socialNetwork.noty.error("Error while submitting post.");
