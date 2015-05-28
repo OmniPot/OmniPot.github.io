@@ -1,4 +1,12 @@
-<div>
-	<img ng-src="{{wallOwner.profileImageData}}" alt="">
-	<img ng-src="{{wallOwner.coverImageData}}" alt="">
+<div class="userImagesContainer">
+	<div class="userProfileImage">
+		<img ng-src="{{wallOwner.profileImageData}}" alt="">
+	</div>
+	<div class="userCoverImage">
+		<img ng-src="{{wallOwner.coverImageData}}" alt="">
+	</div>
 </div>
+
+<header class="wallOwnerName">
+	<h2>{{wallOwner.name}}'s Wall</h2>
+</header>

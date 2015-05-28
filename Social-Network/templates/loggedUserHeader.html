@@ -10,13 +10,13 @@
 	<ul>
 		<li><a class="home" href="#/home"></a></li>
 		<li><a class="wall" href="#/users/{{loggedUserHeaderData.username}}/"></a></li>
-		<li><a class="editProfile"href="#/profile"></a></li>
 		<li>
 			<a class="friendRequests" href="" ng-click="getFriendRequests()"></a>
 			<div class="requestsContainer">
 				<ul friend-requests ng-show="requestsVisible"></ul>
 			</div>
 		</li>
+		<li><a class="editProfile"href="#/profile"></a></li>
 		<li><a class="changePassword" href="#/profile/password"></a></li>
 		<li><a class="logout"href="#/logout"></a></li>
 	</ul>

@@ -16,9 +16,15 @@ body {
 }
 
 a {
+	text-shadow: none;
 	text-decoration: none;
 	font-weight: bold;
 	color: #7f0000;
+	transition: all 0.30s ease-in-out;
+}
+
+a:hover {
+	text-shadow: #7f0000 0px 0px .5px;
 }
 
 ul {
@@ -32,11 +38,33 @@ button {
 	font: normal normal 12px Verdana, Geneva, sans-serif !important;
 	border: 1px solid #7f0000 !important;
 	border-radius: 2px !important;
-	background: #f8f8f8 !important; 
+	box-shadow: none !important;
+	background: #fff !important;
+	padding: 3px !important;
+	transition: all 0.30s ease-in-out;
+}
+
+button:hover {
+	background: #7f0000 !important; 
+	color: #fff;
+	box-shadow: #7f0000 0px 0px 2px;
 }
 
 img {
 	 border: 1px solid #ccc;
+}
+
+input[type=text], input[type=email],input[type=password] {
+	width: 50%;
+	padding: 3px 7px;
+	outline: none;
+	border: 1px solid #7f0000;
+	border-radius: 2px;
+	transition: all 0.30s ease-in-out;
+}
+
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
+	box-shadow: #7f0000 0px 0px 3px !important;
 }
 
 /* Logged user header styles */
@@ -48,31 +76,31 @@ img {
 	width: 100%;
 	height: 60px;
 	margin: 0 auto;
+	z-index: 999;
 	background: #fff; 
-	box-shadow: #7f0000 0px 0px 10px;
+	box-shadow: #7f0000 0px 0px 5px;
 }
 
 .loggedUserHeader .profileImageContainer {
 	position: absolute;
 	width: 8%;
-	padding: 1%;
-	float: left;
 	background: #fff; 
+	border: 5px solid #fff;
 	border-radius: 2px;
-	box-shadow: #7f0000 0px 0px 10px;
+	box-shadow: #7f0000 0px 0px 5px;
 }
 
 .loggedUserHeader .profileImageContainer > img {
+	display: block;
 	width: 100%;
 	max-width: 100%;
-	border: 1px solid #ccc;
 }
 
 .loggedUserHeader .usernameContainer {
 	position: absolute;
 	top: 15px;
-	left: 11%;
-	width: 30%;
+	left: 10%;
+	width: 25%;
 	padding: 0 1%;
 	text-align: left;
 }
@@ -132,9 +160,7 @@ img {
 .loggedUserHeader .usersSearchContainer .searchForm > input {
 	width: 94%;
 	padding: 2%;
-	border: none;
 	font-size: 1.2em;
-	box-shadow: #7f0000 0px 0px 2px;
 }
 
 .searchResultList {
@@ -196,14 +222,15 @@ img {
 /* Content wrapper styles */
 
 .wrapper {
-	width: 84%;
-	margin: 6% 0 2% 12%;
-	padding: 1.5% 2%;
+	width: 72%;
+	margin: 6% auto;
+	padding: 0 2%;
 	background: #fff;
 	color: #222;
 }
 
 .pageHeader > h1 {
+	color: #222;
 	padding: 0 2%;
 	margin: 0 0 1% 0;
 }
@@ -211,14 +238,19 @@ img {
 /* Post styles */
 
 .post {
-	border-bottom: 2px solid #ccc;
 	padding: 1% 0%;
 }
 
 .postsContainer {
 	width: 60%;
-	padding: 2%;
+	padding: 0 2%;
+	margin: 2% 0;
 	float: left;
+}
+
+.addPostOption{
+	padding: 0 2% 2% 2%;
+  	border-bottom: 2px solid #ccc;
 }
 
 .postHeader .postAuthorImage {
@@ -316,20 +348,18 @@ img {
 	margin: 1% 0 0 0;
 }
 
-.commentPostContainer > input {
-	width: 50%;
-}
-
 /* Friends preview styles */
 
 .friendsPreviewContainer {
 	width: 30%;
-	padding: 0 2% 2% 2%;
+	padding: 0 0 0 2%;
+	margin: 2% 0;
 	float: left;
 	border-left: 2px solid #ccc;
 }
 
 .friendsPreviewContainer > header > h2 {
+	color: #222;
 	display: inline-block;
 	margin: 1% 0;
 }
@@ -362,7 +392,7 @@ img {
 
 .friendsPreviewFriendName {
 	display: inline-block;
-	width: 50%;
+	width: 40%;
 	font-size: .9em;
 	vertical-align: middle;
 }
@@ -439,6 +469,47 @@ img {
 	display: block;
 	text-align: right;
 }
+
+/* User wall header styles */
+
+.userImagesContainer {
+	position: relative;
+	width: 100%;
+	height: 250px;
+	background: #f8f8f8; 
+}
+
+.userProfileImage {
+	position: relative;
+	top: 4%;
+	left: 1%;
+	width: 20%;
+	border: 2px solid #f8f8f8;
+	z-index: 998;
+}
+
+.userCoverImage {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 997;
+	overflow: hidden;
+}
+
+.userProfileImage > img, .userCoverImage > img {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+}
+
+.wallOwnerName > h2 {
+	padding: 0 2% 0 2%;
+	color: #222;
+}
+
+/* Clearfix */
 
 .clearfix:after {
 	clear: both;
