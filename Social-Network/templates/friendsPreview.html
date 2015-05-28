@@ -1,7 +1,13 @@
-<span><a href="#/users/{{userFriendsData.previewOwner}}/friends">Friends: {{userFriendsData.friendsCount}}</a></span>
-<ul>
-	<li ng-repeat="friend in userFriendsData.friends">
-		<img ng-src="{{friend.profileImageData}}" alt="" />
-		<span user-preview user-username="friend.username" user-name="friend.name"></span>
+<header class="">
+	<h2> Friends Preview</h2>
+</header>
+
+<a class="friendsPreviewCount" href="#/users/{{userFriendsData.previewOwner}}/friends">Friends Count: {{userFriendsData.friendsCount}}</a>
+<ul class="friendsPreviewList">
+	<li class="friendsPreviewFriend" ng-repeat="friend in userFriendsData.friends">
+		<img class="friendsPreviewFriendProfileImage" ng-src="{{friend.profileImageData}}" alt="" />
+		<div class="friendsPreviewFriendName">
+			<span user-preview user-username="friend.username" user-name="friend.name"></span>
+		</div>
 	</li>
 </ul>

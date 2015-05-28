@@ -4,5 +4,7 @@
 		<img class="userPreviewImage" ng-src="{{previewedUser.profileImageData}}" alt="" />
 		<span class="userPreviewName">{{previewedUser.name}}</span>
 	</a>
-	<button ng-if="canInviteUser" ng-click="sendFriendRequest()">Invite</button>
+	<div class="userPreviewOptions">
+		<button ng-if="canInviteUser" ng-click="sendFriendRequest()">Invite</button>
+	</div>
 </div>

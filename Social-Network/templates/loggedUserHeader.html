@@ -13,7 +13,9 @@
 		<li><a class="editProfile"href="#/profile"></a></li>
 		<li>
 			<a class="friendRequests" href="" ng-click="getFriendRequests()"></a>
-			<ul friend-requests ng-show="requestsVisible"></ul>
+			<div class="requestsContainer">
+				<ul friend-requests ng-show="requestsVisible"></ul>
+			</div>
 		</li>
 		<li><a class="changePassword" href="#/profile/password"></a></li>
 		<li><a class="logout"href="#/logout"></a></li>

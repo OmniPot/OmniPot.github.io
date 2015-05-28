@@ -4,7 +4,9 @@
 <ul class="searchResultList">
 	<li class="searchResult" ng-repeat="foundUser in foundUsers">
 		<img class="resultImage" ng-src="{{foundUser.profileImageData}}" alt="" />
-		<span class="resultName" user-preview user-username="foundUser.username" user-name="foundUser.name"></span>
+		<div class="resultName">
+			<span user-preview user-username="foundUser.username" user-name="foundUser.name"></span>
+		</div>
 	</li>
 	<li ng-if="foundUsers.length == 0"><h2>No users found. :/</h2></li>
 </ul>

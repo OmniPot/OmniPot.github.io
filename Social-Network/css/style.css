@@ -30,6 +30,13 @@ ul {
 
 button {
 	font: normal normal 12px Verdana, Geneva, sans-serif !important;
+	border: 1px solid #7f0000 !important;
+	border-radius: 2px !important;
+	background: #f8f8f8 !important; 
+}
+
+img {
+	 border: 1px solid #ccc;
 }
 
 /* Logged user header styles */
@@ -63,41 +70,35 @@ button {
 
 .loggedUserHeader .usernameContainer {
 	position: absolute;
-	top: 20px;
-	left: 10%;
-	width: 25%;
+	top: 15px;
+	left: 11%;
+	width: 30%;
 	padding: 0 1%;
 	text-align: left;
 }
 
-.loggedUserHeader .usernameContainer > a {
-	display: inline-block;
-	color: #222;
-}
-
 .loggedUserHeader .headerNavigation {
 	position: absolute;
-	top: 10px;
-	left: 40%;
-	width: 340px;
+	top: 15px;
+	left: 35%;
+	width: 35%;
 }
 
 .loggedUserHeader .headerNavigation > ul {
-	width: 340px;
+	width: 100%;
 }
 
 .loggedUserHeader .headerNavigation > ul > li {
 	display: inline-block;
 	width: 30px;
 	height: 30px;
-	margin: 0 3%;
+	margin: 0 2.5%;
 }
 
 .loggedUserHeader .headerNavigation > ul > li > a {
-	display: inline-block;
+	display: block;
 	width: 100%;
 	height: 100%;
-	font-size: .9em;
 }
 
 .loggedUserHeader .usersSearchContainer {
@@ -153,10 +154,12 @@ button {
 	width: 18%;
 	max-width: 18%;
 	vertical-align: middle;
+	border: 1px solid #ccc;
 }
 
 .searchResult .resultName {
 	display: inline-block;
+	width: 60%;
 	vertical-align: middle;
 }
 
@@ -213,7 +216,7 @@ button {
 }
 
 .postsContainer {
-	width: 55%;
+	width: 60%;
 	padding: 2%;
 	float: left;
 }
@@ -223,8 +226,8 @@ button {
 	vertical-align: middle;
 	width: 5em;
 	max-width: 5em;
-	padding: .5%;
-	background: #eee;
+	margin: .5%;
+	border: 1px solid #ccc;
 }
 
 .postHeader .postInfo {
@@ -283,10 +286,10 @@ button {
 .commentHeader .commentAuthorImage {
 	display: inline-block;
 	vertical-align: middle;
-	padding: .5%;
 	width: 3em;
 	max-width: 3em;	
-	background: #eee;
+	margin: .5%;
+	border: 1px solid #ccc;
 }
 
 .commentContent {
@@ -321,9 +324,95 @@ button {
 
 .friendsPreviewContainer {
 	width: 30%;
-	padding: 2% 2% 2% 4%;
+	padding: 0 2% 2% 2%;
 	float: left;
 	border-left: 2px solid #ccc;
+}
+
+.friendsPreviewContainer > header > h2 {
+	display: inline-block;
+	margin: 1% 0;
+}
+
+.friendsPreviewList {
+	display: block;
+	width: 100%;
+}
+
+.friendsPreviewCount {
+	display: inline-block;
+	padding: 1% 1% 5% 1%;
+	font-size: 1.1em;
+}
+
+.friendsPreviewFriend {
+	display: block;
+	width: 98%;
+	margin: 1% auto;
+	vertical-align: middle;
+}
+
+.friendsPreviewFriendProfileImage {
+	display: inline-block;
+	width: 6em;
+	max-width: 6em;
+	vertical-align: middle;
+	border: 1px solid #ccc;
+}
+
+.friendsPreviewFriendName {
+	display: inline-block;
+	width: 50%;
+	font-size: .9em;
+	vertical-align: middle;
+}
+
+/* Friend requests styles */
+
+.requestsContainer {
+	position: absolute;
+	width: 250px;
+	left: 20%;
+	top: 110%;
+}
+
+.requestsContainer > ul {
+	width: 100%;
+	background: #f8f8f8;
+	border: 1px solid #c0c0c0;
+}
+
+.request {
+	width: 97%;
+	padding: 1%;
+	border: 1px solid #c0c0c0;
+}
+
+.requestProfileImage {
+	display: inline-block;
+	width: 4em;
+	max-width: 4em;
+	margin: 2%;
+	vertical-align: middle;
+	border: 1px solid #ccc;
+}
+
+.requestName {
+	display: inline-block;
+	width: 60%;
+	font-size: .9em;
+	vertical-align: middle;
+}
+
+.requestOptions, .hideRequests {
+	display: block;
+	text-align: right;
+	background: #f8f8f8;
+}
+
+.hideRequests {
+	padding: 1% 0;
+	text-align: center;
 }
 
 /* User preview styles */
@@ -344,6 +433,11 @@ button {
 	width: 5em;
 	max-width: 5em;
 	border: 1px solid #ccc;
+}
+
+.userPreviewOptions {
+	display: block;
+	text-align: right;
 }
 
 .clearfix:after {
