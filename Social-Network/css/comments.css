@@ -1,0 +1,60 @@
+.comment {
+	display: inline-block;
+	width: 92%;
+	margin: 2% 0 0 8%;
+	font-size: .8em;
+}
+
+.commentInfo {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.commentHeader {
+	display: inline-block;
+	width: 100%;
+	vertical-align: middle;
+}
+
+.commentDate {
+	display: block;
+}
+
+.commentHeader .commentAuthorImage {
+	display: inline-block;
+	vertical-align: middle;
+	width: 3em;
+	max-width: 3em;	
+	margin: .5%;
+	border: 1px solid #ccc;
+}
+
+.commentContent {
+	margin: 1% 0;
+}
+
+.commentHeader .commentAuthorName {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.commentOptions > div, .commentOptions > span {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 1% 0 0;
+}
+
+.showMoreButtonContainer {
+	margin: 1% 0;
+}
+
+.commentPostContainer {
+	width: 100%;
+	margin: 1% 0 0 0;
+}
+
+.commentContent .editCommentTextarea {
+	width: 95%;
+	max-width: 95%;
+	height: 3em;
+}

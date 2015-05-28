@@ -1,0 +1,128 @@
+.editProfileContainer {
+	display: block;
+	padding: 2%;
+}
+
+.editProfileInfoForm {
+	display: inline-block;
+	width: 55%;
+	vertical-align: middle;
+}
+
+.group {
+	margin: 1% auto;
+	text-align: center;
+}
+
+.group > input {
+	width: 75%;
+	margin-left: 5%;
+}
+
+.group > label {
+	display: inline-block;
+	width: 10%;
+	text-align: right;
+}
+
+.group .genderGroup {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.group .genderGroup > div {
+	text-align: left; 
+}
+
+.genderGroup > label {
+	display: block;
+	width: 100px;
+	margin: 2% 0;
+	vertical-align: middle;
+	float: right;
+}
+
+.genderGroup > label > input {
+	margin: 0 10%;
+}
+
+.profileImageGroup {
+	display: inline-block;
+	width: 40%;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.profileImageGroup .profileUpload {
+	display: block;
+	width: 50%;
+	margin: 3% auto;
+}
+
+.coverUpload {
+	display: block;
+	width: 25%;
+	margin: 3% auto;
+}
+
+input[type=file] {
+	display: none;
+}
+
+.profileImageGroup > img {
+	display: inline;
+	width: 14em;
+	max-width: 14em;
+}
+
+.coverImageGroup {
+	display: block;
+	width: 100%;
+	height: 250px;
+	overflow: hidden;
+}
+
+.coverImageGroup > img {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+}
+
+.submitChanges {
+	display: block;
+	text-align: center;
+	margin: 2% auto
+}
+
+.submitChanges > button {
+	padding: 1% !important;
+	font-size: 1.2em !important;
+}
+
+/* Password change */
+
+.changePasswordContainer {
+	width: 50%;
+	margin: 2% auto;
+	padding: 0 2%;
+}
+
+.passwordGroup {
+	padding: 2%;
+}
+
+.passwordGroup > label {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.passwordGroup > input {
+	display: inline-block;
+	vertical-align: middle;
+	width: 50%;
+	float: right;
+}
+
+.changePasswordContainer .submitChanges {
+	margin-top: 5%;
+}

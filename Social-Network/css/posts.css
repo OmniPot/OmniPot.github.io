@@ -1,0 +1,60 @@
+.post {
+	padding: 1% 0%;
+	border-bottom: 2px solid #ccc;
+}
+
+.postsContainer {
+	width: 60%;
+	padding: 0 2%;
+	margin: 2% 0;
+	float: left;
+}
+
+.addPostOption{
+	padding: 0 2% 2% 2%;
+  	border-bottom: 2px solid #ccc;
+}
+
+.postHeader .postAuthorImage {
+	display: inline-block;
+	vertical-align: middle;
+	width: 5em;
+	max-width: 5em;
+	margin: .5%;
+	border: 1px solid #ccc;
+}
+
+.postHeader .postInfo {
+	display: inline-block;
+	width: 70%;
+	vertical-align: middle;
+}
+
+.postDate {
+	font-size: .8em;
+}
+
+.postAuthor, .postWallOwner {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.postContent {
+	margin: 1% 0;
+}
+
+.postOptions {
+	font-size: .8em;
+}
+
+.postOptions > div {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 1% 0 0;
+}
+
+.postContent .editPostTextarea {
+	width: 95%;
+	max-width: 95%;
+	height: 3em;
+}

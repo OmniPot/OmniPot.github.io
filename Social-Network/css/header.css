@@ -1,0 +1,194 @@
+.loggedUserHeader {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 60px;
+	margin: 0 auto;
+	z-index: 999;
+	background: #fff; 
+	box-shadow: #7f0000 0px 0px 5px;
+}
+
+.loggedUserHeader .profileImageContainer {
+	position: absolute;
+	width: 8%;
+	background: #fff; 
+	border: 5px solid #fff;
+	border-radius: 2px;
+	box-shadow: #7f0000 0px 0px 5px;
+}
+
+.loggedUserHeader .profileImageContainer > img {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+}
+
+.loggedUserHeader .usernameContainer {
+	position: absolute;
+	top: 15px;
+	left: 10%;
+	width: 25%;
+	padding: 0 1%;
+	text-align: left;
+}
+
+.loggedUserHeader .headerNavigation {
+	position: absolute;
+	top: 15px;
+	left: 35%;
+	width: 35%;
+}
+
+.loggedUserHeader .headerNavigation > ul {
+	width: 100%;
+}
+
+.loggedUserHeader .headerNavigation > ul > li {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	margin: 0 2.5%;
+}
+
+.loggedUserHeader .headerNavigation > ul > li > a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.loggedUserHeader .usersSearchContainer {
+	position: absolute;
+	right: 0;
+	top: 10%;
+	width: 30%;
+	height: 40px;
+}
+
+.loggedUserHeader .usersSearchContainer > span {
+	display: inline-block;
+	padding: 5px; 
+	vertical-align: middle;
+}
+
+.loggedUserHeader .usersSearchContainer > div {
+	display: inline-block;
+	vertical-align: middle;
+	width: 70%;
+	height: 30px;
+	padding: 2% 2%;
+}
+
+.loggedUserHeader .usersSearchContainer .searchForm {
+	width: 100%;
+	margin: 0 auto;
+	vertical-align: middle;
+}
+
+.loggedUserHeader .usersSearchContainer .searchForm > input {
+	width: 94%;
+	padding: 2%;
+	font-size: 1.2em;
+}
+
+.searchResultList {
+	width: 98%;
+	background: #fff; 
+}
+
+.searchResult {
+	width: 97%;
+	height: 50px;
+	padding: 1%;
+	border: 1px solid #c0c0c0; 
+}
+
+.searchResult .resultImage {
+	display: inline-block;
+	width: 18%;
+	max-width: 18%;
+	vertical-align: middle;
+	border: 1px solid #ccc;
+	
+}
+
+.searchResult .resultName {
+	display: inline-block;
+	width: 60%;
+	vertical-align: middle;
+}
+
+.loggedUserHeader .headerNavigation > ul > li > .home{
+	background: url('../resources/home-icon.png') no-repeat center center;
+	background-size: cover;
+}
+
+.loggedUserHeader .headerNavigation > ul > li > .wall{
+	background: url('../resources/wall-icon.png') no-repeat center center;
+	background-size: cover;
+}
+
+.loggedUserHeader .headerNavigation > ul > li > .editProfile{
+	background: url('../resources/edit-profile-icon.png') no-repeat center center;
+	background-size: cover;
+}
+
+.loggedUserHeader .headerNavigation > ul > li > .friendRequests{
+	background: url('../resources/friend-requests-icon.png') no-repeat center center;
+	background-size: cover;
+}
+
+.loggedUserHeader .headerNavigation > ul > li > .changePassword{
+	background: url('../resources/password-change-icon.png') no-repeat center center;
+	background-size: cover;
+}
+
+.loggedUserHeader .headerNavigation > ul > li > .logout{
+	background: url('../resources/logout-icon.png') no-repeat center center;
+	background-size: cover;
+}
+
+.requestsContainer {
+	position: absolute;
+	width: 250px;
+	left: 20%;
+	top: 110%;
+}
+
+.requestsContainer > ul {
+	width: 100%;
+	background: #fff;
+}
+
+.request {
+	width: 97%;
+	padding: 1%;
+	border: 1px solid #c0c0c0;
+}
+
+.requestProfileImage {
+	display: inline-block;
+	width: 4em;
+	max-width: 4em;
+	margin: 2%;
+	vertical-align: middle;
+	border: 1px solid #ccc;
+}
+
+.requestName {
+	display: inline-block;
+	width: 60%;
+	font-size: .9em;
+	vertical-align: middle;
+}
+
+.requestOptions, .hideRequests {
+	display: block;
+	text-align: right;
+}
+
+.hideRequests {
+	padding: 1% 0;
+	text-align: center;
+}

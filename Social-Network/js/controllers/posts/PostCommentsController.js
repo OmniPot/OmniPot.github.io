@@ -1,6 +1,8 @@
 socialNetwork.controller('PostCommentsController', function($scope, commentsData) {
 	var currentUserUsername = $scope.authentication.getUserData().username;
 
+	$scope.editCommentContainer = {};
+
 	$scope.getPostComments = function() {
 		commentsData.getPostComments($scope.post.id).then(
 			function success(postComments) {
@@ -60,6 +62,27 @@ socialNetwork.controller('PostCommentsController', function($scope, commentsData
 				socialNetwork.noty.error("Error while deleting comment.");
 			})
 	}
+
+	$scope.editPostComment = function(commentId) {
+		commentsData.editPostComment($scope.post.id, commentId, $scope.editCommentContainer[commentId]).then(
+			function success(result) {
+				socialNetwork.noty.success("Successfully edited comment.");
+				$scope.editCommentContainer[commentId] = undefined;
+				$scope.getPostComments($scope.post);
+			},
+			function error(error) {
+				socialNetwork.noty.error("Error while editing comment.");
+			})
+	}
+
+	$scope.enableEditComment = function(commentId, commentContent) {
+		$scope.editCommentContainer[commentId] = commentContent;
+	}
+
+	$scope.cancelEditComment = function(commentId) {
+		$scope.editCommentContainer[commentId] = undefined;
+	}
+
 
 	$scope.likeComment = function(commentId) {
 		commentsData.likePostComment($scope.post.id, commentId).then(

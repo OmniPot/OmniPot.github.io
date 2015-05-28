@@ -1,0 +1,40 @@
+.userPreviewContainer {
+	width: 250px;
+	padding: .5%;
+	background: #fff;
+	position: absolute;
+	box-shadow: #222 0 0 2px;
+	font-size: 14px;
+	z-index: 999;
+}
+
+.userPreviewImage {
+	display: inline-block;
+	vertical-align: middle;
+	width: 100px;
+	max-width: 100px;
+	border: 1px solid #ccc;
+}
+
+.userPreviewName {
+	display: inline-block;
+	width: 140px;
+	vertical-align: middle;
+}
+
+.friendshipStatusContainer {
+	display: inline-block;
+	width: 140px;
+	vertical-align: middle;
+}
+
+.friendshipStatus {
+	display: inline-block;
+	width: 100%;
+	vertical-align: middle;
+}
+
+.userPreviewOptions {
+	display: block;
+	text-align: right;
+}

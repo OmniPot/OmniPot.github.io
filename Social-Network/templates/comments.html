@@ -8,7 +8,8 @@
 	</header>
 
 	<section class="commentContent">
-		<span>{{comment.commentContent}}</span>
+		<textarea class="editCommentTextarea" ng-if="editCommentContainer[comment.id]" ng-model="editCommentContainer[comment.id]"></textarea>
+		<span ng-if="!editCommentContainer[comment.id]">{{comment.commentContent}}</span>
 	</section>
 
 	<section class="commentOptions">
@@ -17,6 +18,14 @@
 		<div ng-if="comment.likeDislikeOptionAvailable">
 			<button ng-if="!comment.liked" ng-click="likeComment(comment.id)">Like&nbsp;&#128077;</button>
 			<button ng-if="comment.liked" ng-click="unlikeComment(comment.id)">Unlike&nbsp;&#128078;</button>
+		</div>
+
+		<div ng-if="comment.editOptionAvailable">
+			<button ng-if="!editCommentContainer[comment.id]" ng-click="enableEditComment(comment.id, comment.commentContent)">Edit&nbsp;&#x270E;</button>
+			<div ng-if="editCommentContainer[comment.id]">
+				<button ng-click="editPostComment(comment.id)">Save&nbsp;&#128078;</button>
+				<button ng-click="cancelEditComment(comment.id)">Cancel&nbsp;&#x2718;</button>
+			</div>
 		</div>
 
 		<div ng-if="comment.deleteOptionAvailable">

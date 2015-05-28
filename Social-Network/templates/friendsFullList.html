@@ -1,13 +1,20 @@
-<div ng-if="friendsViewOptionAvailable">
-	<h1>{{wallOwner.name}} has {{friends.length}} friends</h1>
-	<span>
+<div class="friendsFullViewContainer" ng-if="friendsViewOptionAvailable">
+	<header class="pageHeader">
+		<h1>{{wallOwner.name}} has {{friends.length}} friends</h1>
+	</header>
+	
+	<div class="friendsFullViewFilterContainer">
 		<label>Filter friends by name: </label>
 		<input type="text" ng-model="filterNameValue">
-	</span>
-	<ul>
-		<li ng-repeat="friend in friends | filter: {name: filterNameValue}">
-			<img ng-src="{{friend.profileImageData}}" alt="" />
-			<span user-preview user-username="friend.username" user-name="friend.name"></span>
-		</li>
-	</ul>
+	</div>
+	<div class="friendsFullViewListContainer">
+		<ul class="friendsList">
+			<li class="friend" ng-repeat="friend in friends | filter: {name: filterNameValue}">
+				<img class="friendProfileImage" ng-src="{{friend.profileImageData}}" alt="" />
+				<div class="friendName">
+					<span user-preview user-username="friend.username" user-name="friend.name"></span>
+				</div>
+			</li>
+		</ul>
+	</div>
 </div>

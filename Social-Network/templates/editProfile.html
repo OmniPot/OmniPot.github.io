@@ -2,37 +2,40 @@
 	<h1>Edit Profile Information</h1>
 </header>
 
-<div>
-	<form>	
-		<div>
+<div class="editProfileContainer">
+	<form class="editProfileInfoForm clearfix">	
+		<div class="group clearfix">
 			<label>Name:</label>
 			<input type="text" name="name" ng-model="editedProfileData.name"/>
 		</div>
 		
-		<div>
+		<div class="group clearfix">
 			<label>Email:</label>
 			<input type="email" name="email" ng-model="editedProfileData.email"/>
 		</div>
-		<div>
+		<div class="group clearfix">
 			<label>Gender: </label>
-		    <input type="radio" value="Other" ng-model="editedProfileData.gender">Other</label>
-		    <input type="radio" value="Male" ng-model="editedProfileData.gender">Male</label>
-		    <input type="radio" value="Female" ng-model="editedProfileData.gender">Female</label>
+			<div class="genderGroup">
+				<label><input type="radio" value="Other" ng-model="editedProfileData.gender"><span>Other</span></label>
+			    <label><input type="radio" value="Male" ng-model="editedProfileData.gender"><span>Male</span></label>
+			    <label><input type="radio" value="Female" ng-model="editedProfileData.gender"><span>Female</span></label>
+			</div>
 		</div>
 	</form>
 
-	<form>
-		<div>
-	    	<img ng-src="{{editedProfileData.profileImageData}}" base-sixty-four-image="editedProfileData.profileImageData" />
-	    	<input type="file" ng-model="editedProfileData.profileImageData" base-sixty-four-input/>
-		</div>
-		<div>
-	    	<img ng-if="editedProfileData" ng-src="{{editedProfileData.coverImageData}}" base-sixty-four-image="editedProfileData.coverImageData" />
-	    	<input type="file" ng-model="editedProfileData.coverImageData" base-sixty-four-input/>
-		</div>
-	</form>
+	<div class="profileImageGroup clearfix">
+    	<img ng-src="{{editedProfileData.profileImageData}}" base-sixty-four-image="editedProfileData.profileImageData" />
+    	<button class="profileUpload">Profile Image Upload</button>
+    	<input id="profileInput" type="file" ng-model="editedProfileData.profileImageData" base-sixty-four-input/>
+	</div>
+	
+	<button class="coverUpload">Cover Image Upload</button>
+	<div class="coverImageGroup clearfix">
+		<input id="coverInput" type="file" ng-model="editedProfileData.coverImageData" base-sixty-four-input/>
+    	<img ng-if="editedProfileData" ng-src="{{editedProfileData.coverImageData}}" base-sixty-four-image="editedProfileData.coverImageData" />
+	</div>
 
-	<div>
+	<div class="submitChanges">
 		<button ng-click="editOwnProfile(editedProfileData)">Submit changes</button>
 	</div>
 </div>

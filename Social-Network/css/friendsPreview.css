@@ -1,0 +1,46 @@
+.friendsPreviewContainer {
+	width: 30%;
+	padding: 0 0 0 2%;
+	margin: 2% 0;
+	float: left;
+	border-left: 2px solid #ccc;
+}
+
+.friendsPreviewContainer > header > h2 {
+	color: #222;
+	display: inline-block;
+	margin: 1% 0;
+}
+
+.friendsPreviewList {
+	display: block;
+	width: 100%;
+}
+
+.friendsPreviewCount {
+	display: inline-block;
+	padding: 1% 1% 5% 1%;
+	font-size: 1.1em;
+}
+
+.friendsPreviewFriend {
+	display: block;
+	width: 98%;
+	margin: 1% auto;
+	vertical-align: middle;
+}
+
+.friendsPreviewFriendProfileImage {
+	display: inline-block;
+	width: 6em;
+	max-width: 6em;
+	vertical-align: middle;
+	border: 1px solid #ccc;
+}
+
+.friendsPreviewFriendName {
+	display: inline-block;
+	width: 40%;
+	font-size: .9em;
+	vertical-align: middle;
+}

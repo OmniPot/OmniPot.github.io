@@ -1,4 +1,4 @@
-socialNetwork.controller('LoggedUserEditProfileController', function($scope, $location, profileData) {
+socialNetwork.controller('LoggedUserEditProfileController', function($scope, $rootScope, $location, profileData) {
 	$scope.getProfileData = function() {
 		profileData.getProfileData().then(
 			function success(profile) {
@@ -11,6 +11,14 @@ socialNetwork.controller('LoggedUserEditProfileController', function($scope, $lo
 	}
 
 	$scope.getProfileData();
+
+	$('.profileUpload').on('click', function (event) {
+		$('#profileInput').click();
+	})
+
+	$('.coverUpload').on('click', function (event) {
+		$('#coverInput').click();
+	})
 
 	$scope.editOwnProfile = function(editedData) {
 		if (editedData.profileImageData) {
@@ -26,7 +34,7 @@ socialNetwork.controller('LoggedUserEditProfileController', function($scope, $lo
 		profileData.editProfileData(editedData).then(
 			function success(result) {
 				socialNetwork.noty.success("Successfully edited profile information.");
-				$scope.getProfileData();
+				$rootScope.loggedUserHeaderData = editedData;
 				$location.path('/home');
 			},
 			function error(error) {

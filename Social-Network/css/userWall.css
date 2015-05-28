@@ -1,0 +1,38 @@
+.userImagesContainer {
+	position: relative;
+	width: 100%;
+	height: 250px;
+	background: #f8f8f8; 
+}
+
+.userProfileImage {
+	position: relative;
+	top: 4%;
+	left: 1%;
+	width: 20%;
+	max-height: 228px;
+	border: 2px solid #f8f8f8;
+	overflow: hidden;
+	z-index: 998;
+}
+
+.userCoverImage {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: 997;
+}
+
+.userProfileImage > img, .userCoverImage > img {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+}
+
+.wallOwnerName > h2 {
+	padding: 0 2% 0 2%;
+	color: #222;
+}

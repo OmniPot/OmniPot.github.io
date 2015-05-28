@@ -54,6 +54,8 @@ socialNetwork.factory('commentsData', function($http, baseServiceUrl, authentica
 	}
 
 	function getAvailableCommentOptions(post, comment, currentUserUsername) {
+		comment.editOptionAvailable = comment.author.username == currentUserUsername;
+
 		comment.deleteOptionAvailable =
 			comment.author.username == currentUserUsername ||
 			post.author.username == currentUserUsername;

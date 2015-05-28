@@ -1,0 +1,39 @@
+.friendsFullViewContainer {
+	padding: 0 2%;
+}
+
+.friendsFullViewFilterContainer {
+	padding: 2%;
+}
+
+.friendsFullViewListContainer {
+	width: 100%;
+	padding: 0 2%;
+}
+
+.friendsList {
+	width: 100%;
+}
+
+.friend {
+	display: inline-block;
+	padding: 1%;
+	width: 28%;
+	margin: 2% 2% 0 0;
+	vertical-align: middle;
+	border: 2px solid #ccc; 
+}
+
+.friendName {
+	display: inline-block;
+	width: 40%;
+	vertical-align: middle;
+}
+
+.friendProfileImage {
+	display: inline-block;
+	width: 7em;
+	max-width: 7em;
+	max-height: 7em;
+	vertical-align: middle;
+}

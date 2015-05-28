@@ -1,6 +1,8 @@
 socialNetwork.controller('PostsController', function($scope, $location, $routeParams, postsData) {
 	var currentUserUsername = $scope.authentication.getUserData().username;
 
+	$scope.editPostContainer = {};
+
 	$scope.getUserWallPosts = function(username) {
 		postsData.getUserWallPosts(username).then(
 			function success(userWallPosts) {
@@ -69,6 +71,26 @@ socialNetwork.controller('PostsController', function($scope, $location, $routePa
 			function error(error) {
 				socialNetwork.noty.error("Error while deleting post.");
 			})
+	}
+
+	$scope.editPost = function(postId) {
+		postsData.editPost(postId, $scope.editPostContainer[postId]).then(
+			function success(result) {
+				socialNetwork.noty.success("Successfully edited post.");
+				$scope.editPostContainer[postId] = undefined;
+				$scope.loadPosts();
+			},
+			function error(error) {
+				socialNetwork.noty.error("Error while editing post.");
+			})
+	}
+
+	$scope.enableEditPost = function(postId, postContent) {
+		$scope.editPostContainer[postId] = postContent;
+	}
+
+	$scope.cancelEditPost = function(postId) {
+		$scope.editPostContainer[postId] = undefined;
 	}
 
 	$scope.likePost = function(postId) {

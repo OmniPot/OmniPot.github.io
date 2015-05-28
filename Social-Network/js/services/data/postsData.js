@@ -15,14 +15,6 @@ socialNetwork.factory('postsData', function($http, baseServiceUrl, authenticatio
 		});
 	}
 
-	// function getPostById(postId) {
-	// 	return $http({
-	// 		method: 'GET',
-	// 		url: baseServiceUrl + 'posts/' + postId,
-	// 		headers: authentication.getHeaders()
-	// 	});
-	// }
-
 	function addPost(postData) {
 		return $http({
 			method: 'POST',
@@ -43,6 +35,17 @@ socialNetwork.factory('postsData', function($http, baseServiceUrl, authenticatio
 		});
 	}
 
+	function editPost(postId, newPostContent) {
+		return $http({
+			method: 'PUT',
+			url: baseServiceUrl + 'posts/' + postId,
+			headers: authentication.getHeaders(),
+			data: {
+				postContent: newPostContent
+			}
+		});
+	}
+
 	function likePost(postId) {
 		return $http({
 			method: 'POST',
@@ -60,6 +63,8 @@ socialNetwork.factory('postsData', function($http, baseServiceUrl, authenticatio
 	}
 
 	function getAvailablePostOptions(post, currentUserUsername) {
+		post.editOptionAvailable = post.author.username == currentUserUsername;
+
 		post.deleteOptionAvailable =
 			post.author.username == currentUserUsername ||
 			post.wallOwner.username == currentUserUsername;
@@ -91,9 +96,9 @@ socialNetwork.factory('postsData', function($http, baseServiceUrl, authenticatio
 	return {
 		getNewsFeedPosts: getNewsFeedPosts,
 		getUserWallPosts: getUserWallPosts,
-		// getPostById: getPostById,
 		addPost: addPost,
 		deletePost: deletePost,
+		editPost: editPost,
 		likePost: likePost,
 		unlikePost: unlikePost,
 		processPostHeader: processPostHeader,

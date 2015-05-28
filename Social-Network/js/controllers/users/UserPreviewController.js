@@ -16,7 +16,7 @@ socialNetwork.controller('UserPreviewController', function($scope, usersData, fr
 		friendsData.sendFriendRequest($scope.userUsername).then(
 			function success() {
 				socialNetwork.noty.success('Friend request successfully sent.');
-				$scope.getUserPreview($scope.userUsername);
+				$scope.getUserPreview(null, $scope.userUsername);
 			},
 			function error(error) {
 				socialNetwork.noty.error('Error sending friend request.');
