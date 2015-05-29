@@ -148,7 +148,7 @@
 }
 
 .loggedUserHeader .headerNavigation > ul > li > .logout{
-	background: url('../resources/logout-icon.png') no-repeat center center;
+	background: url('../resources/logout-icon.jpg') no-repeat center center;
 	background-size: cover;
 }
 

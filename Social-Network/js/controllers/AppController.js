@@ -11,9 +11,9 @@ socialNetwork.controller('AppController', function($scope, $rootScope, authentic
 	$scope.checkForImagesData = function(userData) {
 		if (userData.profileImageData == null) {
 			if (userData.gender == 'Male' || userData.gender == 0) {
-				userData.profileImageData = 'resources/defaultMale.jpg';
+				userData.profileImageData = 'resources/default.gif';
 			} else {
-				userData.profileImageData = 'resources/defaultFemale.jpg';
+				userData.profileImageData = 'resources/default.gif';
 			}
 		}
 

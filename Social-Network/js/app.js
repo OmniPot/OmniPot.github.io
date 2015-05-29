@@ -61,7 +61,7 @@ socialNetwork.run(function($rootScope, $location, authentication) {
 			socialNetwork.noty.warn("Login or register first.");
 			$location.path("/welcome");
 		} else if (authentication.isLoggedIn() && (isWelcome > -1 || isRegister > -1 || isLogin > -1)) {
-			socialNetwork.noty.warn("Aldready logged in.");
+			socialNetwork.noty.warn("Cant go there. Logout first.");
 			$location.path("/home");
 		}
 

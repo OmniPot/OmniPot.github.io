@@ -1,6 +1,8 @@
 html {
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 16px;
+	background: url('../resources/background.png') no-repeat center center fixed;
+	background-size: cover;
 }
 
 #notyContainer {
@@ -74,15 +76,15 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
 .wrapper {
 	width: 72%;
 	margin: 6% auto;
-	padding: 0 2%;
+	padding: 2% 2%;
 	background: #fff;
 	color: #222;
 }
 
 .pageHeader > h1 {
 	color: #222;
-	padding: 0 2%;
-	margin: 0 0 1% 0;
+	padding: 0;
+	margin: 2% 2% 0 2%;
 }
 
 .clearfix:after {

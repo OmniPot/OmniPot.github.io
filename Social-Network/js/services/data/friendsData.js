@@ -58,7 +58,7 @@ socialNetwork.factory('friendsData', function($http, baseServiceUrl, authenticat
 	function sendFriendRequest(username) {
 		return $http({
 			method: 'POST',
-			url: baseServiceUrl + 'me/requests/' + username,
+			url: baseServiceUrl + 'me/requests/' + username + '/',
 			headers: authentication.getHeaders()
 		});
 	}

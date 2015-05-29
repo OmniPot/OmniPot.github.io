@@ -1,4 +1,4 @@
-socialNetwork.controller('LoginController', function($scope, $rootScope, $location, usersData) {
+socialNetwork.controller('LoginController', function($scope, $location, usersData) {
 	$scope.login = function(user) {
 		usersData.login(user).then(
 			function success(userProfile) {
