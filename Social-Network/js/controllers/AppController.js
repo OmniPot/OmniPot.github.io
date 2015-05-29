@@ -1,4 +1,4 @@
-socialNetwork.controller('AppController', function($scope, authentication) {
+socialNetwork.controller('AppController', function($scope, $rootScope, authentication) {
 	$scope.authentication = authentication;
 	
 	$scope.formatImageString = function(data) {

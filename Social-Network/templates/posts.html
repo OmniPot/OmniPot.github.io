@@ -21,20 +21,20 @@
 		<span>Comments: {{post.totalCommentsCount}}</span>
 
 		<div ng-if="post.likeDislikeOptionAvailable">
-			<button ng-if="!post.liked" ng-click="likePost(post.id)">Like&nbsp;&#128077;</button>
-			<button ng-if="post.liked" ng-click="unlikePost(post.id)">Unlike&nbsp;&#128078;</button>
+			<button ng-if="!post.liked" ng-click="likePost(post)">Like&nbsp;&#128077;</button>
+			<button ng-if="post.liked" ng-click="unlikePost(post)">Unlike&nbsp;&#128078;</button>
 		</div>
 
 		<div ng-if="post.editOptionAvailable">
-			<button ng-if="!editPostContainer[post.id]" ng-click="enableEditPost(post.id, post.postContent)">Edit&nbsp;&#x270E;</button>
+			<button ng-if="!editPostContainer[post.id]" ng-click="enableEditPost(post)">Edit&nbsp;&#x270E;</button>
 			<div ng-if="editPostContainer[post.id]">
-				<button ng-click="editPost(post.id)">Save&nbsp;&#128078;</button>
-				<button ng-click="cancelEditPost(post.id)">Cancel&nbsp;&#x2718;</button>
+				<button ng-click="editPost(post)">Save&nbsp;&#128078;</button>
+				<button ng-click="cancelEditPost(post)">Cancel&nbsp;&#x2718;</button>
 			</div>
 		</div>
 
 		<div ng-if="post.deleteOptionAvailable">
-			<button ng-click="deletePost(post.id)">Delete&nbsp;&#x2718;</button>
+			<button ng-click="deletePost(post)">Delete&nbsp;&#x2718;</button>
 		</div>
 	</section>
 	<section class="commentContainer" post-comments></section>

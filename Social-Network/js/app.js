@@ -1,6 +1,7 @@
-var socialNetwork = angular.module('socialNetworkApp', ['ngRoute', 'ngStorage', 'naif.base64']);
+var socialNetwork = angular.module('socialNetworkApp', ['ngRoute', 'ngStorage', 'naif.base64', 'angularSpinner', 'infinite-scroll']);
 
 socialNetwork.constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net/api/');
+socialNetwork.constant('pageSize', 4);
 
 socialNetwork.config(function($routeProvider) {
 	$routeProvider.when('/welcome', {
@@ -59,6 +60,10 @@ socialNetwork.run(function($rootScope, $location, authentication) {
 		if (!authentication.isLoggedIn() && (isWelcome == -1 && isRegister == -1 && isLogin == -1)) {
 			socialNetwork.noty.warn("Login or register first.");
 			$location.path("/welcome");
+		} else if (authentication.isLoggedIn() && (isWelcome > -1 || isRegister > -1 || isLogin > -1)) {
+			socialNetwork.noty.warn("Aldready logged in.");
+			$location.path("/home");
 		}
+
 	});
 });

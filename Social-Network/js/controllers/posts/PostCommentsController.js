@@ -3,13 +3,12 @@ socialNetwork.controller('PostCommentsController', function($scope, commentsData
 
 	$scope.editCommentContainer = {};
 
-	$scope.getPostComments = function() {
-		commentsData.getPostComments($scope.post.id).then(
+	$scope.getPostComments = function(post) {
+		commentsData.getPostComments(post.id).then(
 			function success(postComments) {
 				postComments.data.forEach(function(comment) {
 					comment.author = $scope.checkForImagesData(comment.author);
-					comment.date = new Date(comment.date);
-					comment = commentsData.getAvailableCommentOptions($scope.post, comment, currentUserUsername);
+					comment = commentsData.getAvailableCommentOptions(post, comment, currentUserUsername);
 				});
 
 				$scope.showMoreLessButtonAvailable = false;
@@ -44,62 +43,65 @@ socialNetwork.controller('PostCommentsController', function($scope, commentsData
 		commentsData.addPostComment($scope.post.id, commentContent).then(
 			function success(result) {
 				socialNetwork.noty.success("Comment added successfully.");
-				$scope.getPostComments($scope.currentPost);
-				$scope.commentContent = '';
+				$scope.getPostComments($scope.post);
 			},
 			function error(error) {
 				socialNetwork.noty.error("Error while adding comment.");
 			});
 	}
 
-	$scope.deleteComment = function(commentId) {
-		commentsData.deletePostComment($scope.post.id, commentId).then(
+	$scope.deleteComment = function(post, comment) {
+		commentsData.deletePostComment(post.id, comment.id).then(
 			function success(result) {
 				socialNetwork.noty.success("Successfully deleted comment.");
-				$scope.getPostComments($scope.post);
+				$scope.comments = $scope.comments.filter(function(c) {
+					return c.id != comment.id;
+				});
 			},
 			function error(error) {
 				socialNetwork.noty.error("Error while deleting comment.");
 			})
 	}
 
-	$scope.editPostComment = function(commentId) {
-		commentsData.editPostComment($scope.post.id, commentId, $scope.editCommentContainer[commentId]).then(
+	$scope.editPostComment = function(post, comment) {
+		commentsData.editPostComment(post.id, comment.id, $scope.editCommentContainer[comment.id]).then(
 			function success(result) {
 				socialNetwork.noty.success("Successfully edited comment.");
-				$scope.editCommentContainer[commentId] = undefined;
-				$scope.getPostComments($scope.post);
+				comment.commentContent = $scope.editCommentContainer[comment.id];
+				$scope.editCommentContainer[comment.id] = undefined;
 			},
 			function error(error) {
 				socialNetwork.noty.error("Error while editing comment.");
-			})
+			});
 	}
 
-	$scope.enableEditComment = function(commentId, commentContent) {
-		$scope.editCommentContainer[commentId] = commentContent;
+	$scope.enableEditComment = function(comment) {
+		$scope.editCommentContainer[comment.id] = comment.commentContent;
 	}
 
-	$scope.cancelEditComment = function(commentId) {
-		$scope.editCommentContainer[commentId] = undefined;
+	$scope.cancelEditComment = function(comment) {
+		$scope.editCommentContainer[comment.id] = undefined;
 	}
 
 
-	$scope.likeComment = function(commentId) {
-		commentsData.likePostComment($scope.post.id, commentId).then(
+	$scope.likeComment = function(post, comment) {
+		commentsData.likePostComment(post.id, comment.id).then(
 			function success(result) {
 				socialNetwork.noty.success("Successfully liked comment.");
-				$scope.getPostComments($scope.post);
+				comment.liked = true;
+				comment.likesCount++;
 			},
 			function error(error) {
 				socialNetwork.noty.error("Error while liking comment.");
 			});
 	}
 
-	$scope.unlikeComment = function(commentId) {
-		commentsData.unlikePostComment($scope.post.id, commentId).then(
+	$scope.unlikeComment = function(post, comment) {
+		commentsData.unlikePostComment(post.id, comment.id).then(
 			function success(result) {
 				socialNetwork.noty.success("Successfully unliked comment.");
-				$scope.getPostComments($scope.post);
+				comment.liked = false;
+				comment.likesCount--;
 			},
 			function error(error) {
 				socialNetwork.noty.error("Error while unliking comment.");

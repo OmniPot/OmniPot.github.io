@@ -1,16 +1,18 @@
-socialNetwork.factory('postsData', function($http, baseServiceUrl, authentication) {
-	function getNewsFeedPosts() {
+socialNetwork.factory('postsData', function($http, baseServiceUrl, pageSize, authentication) {
+	function getNewsFeedPosts(startPostId) {
+		startPostId = startPostId ? 'startPostId=' + startPostId + '&' : '';
 		return $http({
 			method: 'GET',
-			url: baseServiceUrl + 'me/feed/?PageSize=5',
+			url: baseServiceUrl + 'me/feed/?' + startPostId + 'PageSize=' + pageSize,
 			headers: authentication.getHeaders()
 		});
 	}
 
-	function getUserWallPosts(username) {
+	function getUserWallPosts(username, startPostId) {
+		startPostId = startPostId ? 'startPostId=' + startPostId + '&' : '';
 		return $http({
 			method: 'GET',
-			url: baseServiceUrl + 'users/' + username + '/wall/?PageSize=5',
+			url: baseServiceUrl + 'users/' + username + '/wall/?' + startPostId + 'PageSize=' + pageSize,
 			headers: authentication.getHeaders()
 		});
 	}

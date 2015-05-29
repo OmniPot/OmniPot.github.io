@@ -68,7 +68,10 @@
 
 .loggedUserHeader .usersSearchContainer > span {
 	display: inline-block;
-	padding: 5px; 
+	width: 30px;
+	height: 30px;
+	background: #fff url('../resources/search-icon.png') no-repeat center center;
+	background-size: cover;
 	vertical-align: middle;
 }
 

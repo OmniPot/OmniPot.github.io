@@ -16,20 +16,20 @@
 		<span>Likes: {{comment.likesCount}}</span>
 
 		<div ng-if="comment.likeDislikeOptionAvailable">
-			<button ng-if="!comment.liked" ng-click="likeComment(comment.id)">Like&nbsp;&#128077;</button>
-			<button ng-if="comment.liked" ng-click="unlikeComment(comment.id)">Unlike&nbsp;&#128078;</button>
+			<button ng-if="!comment.liked" ng-click="likeComment(post, comment)">Like&nbsp;&#128077;</button>
+			<button ng-if="comment.liked" ng-click="unlikeComment(post, comment)">Unlike&nbsp;&#128078;</button>
 		</div>
 
 		<div ng-if="comment.editOptionAvailable">
-			<button ng-if="!editCommentContainer[comment.id]" ng-click="enableEditComment(comment.id, comment.commentContent)">Edit&nbsp;&#x270E;</button>
+			<button ng-if="!editCommentContainer[comment.id]" ng-click="enableEditComment(comment)">Edit&nbsp;&#x270E;</button>
 			<div ng-if="editCommentContainer[comment.id]">
-				<button ng-click="editPostComment(comment.id)">Save&nbsp;&#128078;</button>
-				<button ng-click="cancelEditComment(comment.id)">Cancel&nbsp;&#x2718;</button>
+				<button ng-click="editPostComment(post, comment)">Save&nbsp;&#128078;</button>
+				<button ng-click="cancelEditComment(comment)">Cancel&nbsp;&#x2718;</button>
 			</div>
 		</div>
 
 		<div ng-if="comment.deleteOptionAvailable">
-			<button ng-click="deleteComment(comment.id)">Delete&nbsp;&#x2718;</button>
+			<button ng-click="deleteComment(post, comment)">Delete&nbsp;&#x2718;</button>
 		</div>
 	</section>
 </div>

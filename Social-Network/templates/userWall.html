@@ -7,5 +7,11 @@
 	</form>
 </div>
 
-<div class="postsContainer" posts></div>
+<div 
+	class="postsContainer" 
+	posts 
+	infinite-scroll='loadPosts()'
+    infinite-scroll-disabled='stopScroll'
+    >
+</div>
 <aside class="friendsPreviewContainer" ng-if="friendsPreviewAvailable" friends-preview></aside>

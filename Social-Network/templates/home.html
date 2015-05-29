@@ -2,5 +2,11 @@
 	<h1>News Feed</h1>
 </header>
 
-<div class="postsContainer" posts></div>
+<div 
+	class="postsContainer" 
+	posts 
+	infinite-scroll='loadPosts()'
+    infinite-scroll-disabled='stopScroll'
+    >
+</div>
 <aside class="friendsPreviewContainer" friends-preview></aside>
