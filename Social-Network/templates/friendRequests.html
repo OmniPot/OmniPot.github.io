@@ -1,15 +1,20 @@
-<li class="request" ng-repeat="request in friendRequests">
-	<a href="#/users/{{request.user.username}}">
-		<img class="requestProfileImage" ng-src="{{request.user.profileImageData}}" alt="">
-		<div class="requestName">
-			<span>{{request.user.name}}</span>
+<span class="requestsCount" ng-if="!requestsVisible">{{friendRequests.length}}</span>
+<ul ng-show="requestsVisible">
+	<li class="request" ng-repeat="request in friendRequests">
+		<a href="#/users/{{request.user.username}}">
+			<img class="requestProfileImage" ng-src="{{request.user.profileImageData}}" alt="">
+			<div class="requestName">
+				<span>{{request.user.name}}&nbsp;</span>
+				<span class="requestGender">{{request.user.gender}}</span>
+			</div>
+		</a>
+		<div class="requestOptions">
+			<button ng-click="approveRequest(request.id)">Accept</button>
+			<button ng-click="rejectRequest(request.id)">Reject</button>
 		</div>
-	</a>
-	<div class="requestOptions">
-		<button ng-click="approveRequest(request.id)">Accept</button>
-		<button ng-click="rejectRequest(request.id)">Reject</button>
+	</li>
+
+	<div class="hideRequests">
+		<button href="" ng-click="hideRequests()">Hide requests</button>
 	</div>
-</li>
-<div class="hideRequests">
-	<button href="" ng-click="hideRequests()">Hide requests</button>
-</div>
+</ul>

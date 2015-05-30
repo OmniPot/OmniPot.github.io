@@ -2,28 +2,28 @@
 	<div>
 		<h2>Registration page</h2>
 	</div>
-	<div>
+	<div class="group">
 	    <input type="text" name="username" ng-model="user.username" class="form-control input-lg" placeholder="Username">
   	</div>
-	<div>
+	<div class="group">
 	    <input type="password" name="password" ng-model="user.password" placeholder="Password"/>
 	</div>
-	<div>
+	<div class="group">
 	    <input type="password" name="confirmPassword" ng-model="user.confirmPassword" placeholder="Confirm Password"/>
 	</div>
-	<div>
+	<div class="group">
 	    <input type="text" name="name" ng-model="user.name" placeholder="Full name"/>
 	</div>
 
-	<div>
+	<div class="group">
 	    <input type="email" name="email" ng-model="user.email" placeholder="Email"/>
 	</div>
 
-	<div>
+	<div class="genderGroup">
 		<label>Gender: </label>
-	    <input type="radio" value="Other" ng-model="user.gender">Other</label>
-	    <input type="radio" value="Male" ng-model="user.gender">Male</label>
-	    <input type="radio" value="Female" ng-model="user.gender">Female</label>
+	    <input type="radio" value="Other" ng-model="user.gender">Other
+	    <input type="radio" value="Male" ng-model="user.gender">Male
+	    <input type="radio" value="Female" ng-model="user.gender">Female
 	</div>
 	<div>
 		<button ng-click="register(user)">Register</button>

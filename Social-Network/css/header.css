@@ -47,8 +47,8 @@
 
 .loggedUserHeader .headerNavigation > ul > li {
 	display: inline-block;
-	width: 30px;
-	height: 30px;
+	width: 32px;
+	height: 32px;
 	margin: 0 2.5%;
 }
 
@@ -164,6 +164,14 @@
 	background: #fff;
 }
 
+.requestsCount {
+	position: absolute;
+	bottom: 20%;
+	left: 26%;
+	color: #7f0000;
+	font-size: 12px;
+}
+
 .request {
 	width: 97%;
 	padding: 1%;
@@ -184,6 +192,10 @@
 	width: 60%;
 	font-size: .9em;
 	vertical-align: middle;
+}
+
+.requestGender {
+	font-size: 20px;
 }
 
 .requestOptions, .hideRequests {

@@ -9,12 +9,13 @@ socialNetwork.controller('FriendRequestsController', function($scope, friendsDat
 				});
 
 				$scope.friendRequests = requests.data;
-				$scope.showRequests();
 			},
 			function error(error) {
 				socialNetwork.noty.error("Unable to fetch friend requests.");
 			});;
 	};
+
+	$scope.getFriendRequests();
 
 	$scope.showRequests = function () {
 		$scope.requestsVisible = true;
@@ -29,6 +30,7 @@ socialNetwork.controller('FriendRequestsController', function($scope, friendsDat
 			function success(result) {
 				socialNetwork.noty.success("Friend request successfully approved.");
 				$scope.getFriendRequests();
+				$scope.showRequests();
 			},
 			function error(error) {
 				socialNetwork.noty.error("Unable to approve friend request.");
@@ -40,6 +42,7 @@ socialNetwork.controller('FriendRequestsController', function($scope, friendsDat
 			function success(result) {
 				socialNetwork.noty.success("Friend request successfully rejected.");
 				$scope.getFriendRequests();
+				$scope.showRequests();
 			},
 			function error(error) {
 				socialNetwork.noty.error("Unable to reject friend request.");

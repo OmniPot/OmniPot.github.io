@@ -1,8 +1,9 @@
 html {
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 16px;
-	background: url('../resources/background.png') no-repeat center center fixed;
-	background-size: cover;
+	background: url('../resources/background-left.png') fixed, url('../resources/background-right.png') fixed;
+	background-position: left bottom, right bottom;
+	background-repeat: no-repeat;
 }
 
 #notyContainer {

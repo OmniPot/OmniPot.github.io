@@ -11,10 +11,8 @@
 		<li><a class="home" href="#/home"></a></li>
 		<li><a class="wall" href="#/users/{{loggedUserHeaderData.username}}/"></a></li>
 		<li>
-			<a class="friendRequests" href="" ng-click="getFriendRequests()"></a>
-			<div class="requestsContainer">
-				<ul friend-requests ng-show="requestsVisible"></ul>
-			</div>
+			<a class="friendRequests" href="" ng-click="showRequests()"></a>
+			<div friend-requests class="requestsContainer"></div>
 		</li>
 		<li><a class="editProfile"href="#/profile"></a></li>
 		<li><a class="changePassword" href="#/profile/password"></a></li>

@@ -10,40 +10,34 @@
 }
 
 .group {
-	margin: 1% auto;
-	text-align: center;
+	margin: 2% auto;
 }
 
 .group > input {
-	width: 75%;
-	margin-left: 5%;
+	width: 68%;
+	padding: 1%;
+	border-radius: 5px;
+	vertical-align: middle;
+	font-size: 18px;
 }
 
 .group > label {
 	display: inline-block;
-	width: 10%;
-	text-align: right;
+	width: 70%;
+	vertical-align: middle;
+	text-align: left;
 }
 
-.group .genderGroup {
+.genderGroup {
+	width: 100%;
+	margin-bottom: 2%;
 	display: inline-block;
 	vertical-align: middle;
 }
 
-.group .genderGroup > div {
-	text-align: left; 
-}
-
-.genderGroup > label {
-	display: block;
-	width: 100px;
-	margin: 2% 0;
-	vertical-align: middle;
-	float: right;
-}
-
-.genderGroup > label > input {
-	margin: 0 10%;
+.genderGroup {
+	display: inline-block;
+	padding: .5% 0;
 }
 
 .profileImageGroup {
@@ -102,25 +96,10 @@ input[type=file] {
 /* Password change */
 
 .changePasswordContainer {
-	width: 50%;
+	width: 70%;
 	margin: 2% auto;
 	padding: 0 2%;
-}
-
-.passwordGroup {
-	padding: 2%;
-}
-
-.passwordGroup > label {
-	display: inline-block;
-	vertical-align: middle;
-}
-
-.passwordGroup > input {
-	display: inline-block;
-	vertical-align: middle;
-	width: 50%;
-	float: right;
+	text-align: center;
 }
 
 .changePasswordContainer .submitChanges {

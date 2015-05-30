@@ -13,13 +13,11 @@
 			<label>Email:</label>
 			<input type="email" name="email" ng-model="editedProfileData.email"/>
 		</div>
-		<div class="group clearfix">
+		<div class="genderGroup">
 			<label>Gender: </label>
-			<div class="genderGroup">
-				<label><input type="radio" value="Other" ng-model="editedProfileData.gender"><span>Other</span></label>
-			    <label><input type="radio" value="Male" ng-model="editedProfileData.gender"><span>Male</span></label>
-			    <label><input type="radio" value="Female" ng-model="editedProfileData.gender"><span>Female</span></label>
-			</div>
+			<input type="radio" value="Other" ng-model="editedProfileData.gender">Other
+			<input type="radio" value="Male" ng-model="editedProfileData.gender">Male
+		    <input type="radio" value="Female" ng-model="editedProfileData.gender">Female
 		</div>
 	</form>
 
