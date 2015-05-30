@@ -28,7 +28,7 @@
 		<div ng-if="post.editOptionAvailable">
 			<button ng-if="!editPostContainer[post.id]" ng-click="enableEditPost(post)">Edit&nbsp;&#x270E;</button>
 			<div ng-if="editPostContainer[post.id]">
-				<button ng-click="editPost(post)">Save&nbsp;&#128078;</button>
+				<button ng-click="editPost(post)">Save&nbsp;&#x2714;</button>
 				<button ng-click="cancelEditPost(post)">Cancel&nbsp;&#x2718;</button>
 			</div>
 		</div>
@@ -40,4 +40,4 @@
 	<section class="commentContainer" post-comments></section>
 </div>
 
-<h2 ng-if="posts.length == 0">No posts on this user's wall. :/</h2>
+<h2 ng-if="posts.length == 0 && !busy">No posts on this user's wall. :/</h2>

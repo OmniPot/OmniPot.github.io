@@ -1,6 +1,7 @@
-<form>
+<div class="welcomeWallaper"></div>
+<form class="registerForm">
 	<div>
-		<h2>Registration page</h2>
+		<h2>Sign Up</h2>
 	</div>
 	<div class="group">
 	    <input type="text" name="username" ng-model="user.username" class="form-control input-lg" placeholder="Username">
@@ -27,6 +28,7 @@
 	</div>
 	<div>
 		<button ng-click="register(user)">Register</button>
+		<span>&nbsp;or&nbsp;</span>
 		<a href="#/login">Login</a>
 	</div>
 </form>

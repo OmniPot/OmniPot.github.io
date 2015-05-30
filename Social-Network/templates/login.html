@@ -1,18 +1,18 @@
-<div>
-	<form>
-		<div>
-			<h2>Login page</h2>
-		</div>
-		<div class="group">
-		    <input type="text" name="username" ng-model="user.username" placeholder="Username">
-	  	</div>
-		<div class="group">
-		    <input type="password" name="password" ng-model="user.password" placeholder="Password"/>
-		</div>
+<div class="welcomeWallaper"></div>
+<form class="loginForm">
+	<div>
+		<h2>Log In</h2>
+	</div>
+	<div class="group">
+	    <input type="text" name="username" ng-model="user.username" placeholder="Username">
+  	</div>
+	<div class="group">
+	    <input type="password" name="password" ng-model="user.password" placeholder="Password"/>
+	</div>
 
-		<div>
-			<button ng-click="login(user)">Login</button>
-			<a href="#/register">Register</a>
-		</div>
-	</form>
-</div>
+	<div>
+		<button ng-click="login(user)">Login</button>
+		<span>&nbsp;or&nbsp;</span>
+		<a href="#/register">Register</a>
+	</div>
+</form>

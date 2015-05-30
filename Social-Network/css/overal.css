@@ -87,6 +87,27 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
 	margin: 2% 2% 0 2%;
 }
 
+.welcomeWallaper {
+	position: absolute;
+	right: 5%;
+	bottom: 40%;
+	width: 300px;
+	height: 230px;
+	background: url('../resources/images/suits.jpg') no-repeat 0% 0%;
+	background-size: 100%;
+	z-index: 100;
+}
+
+.loginForm, .registerForm, .welcomeForm {
+	position: relative;
+	z-index: 200;
+}
+
+.loginForm > div > button, .registerForm > div > button {
+	font-size: 1.1em !important;
+	padding: 1% !important;
+}
+
 .clearfix:after {
 	clear: both;
 	display: block;

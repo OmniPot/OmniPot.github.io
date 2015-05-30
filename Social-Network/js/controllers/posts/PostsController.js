@@ -27,6 +27,9 @@ socialNetwork.controller('PostsController',
 			postsData.addPost(postData).then(
 				function success(result) {
 					socialNetwork.noty.success("Successfully added post.");
+
+					$scope.startPostId = undefined;
+					$scope.posts = [];
 					$scope.loadPosts();
 				},
 				function error(error) {
@@ -52,6 +55,7 @@ socialNetwork.controller('PostsController',
 			postsData.editPost(post.id, $scope.editPostContainer[post.id]).then(
 				function success(result) {
 					socialNetwork.noty.success("Successfully edited post.");
+
 					post.postContent = $scope.editPostContainer[post.id];
 					$scope.editPostContainer[post.id] = undefined;
 				},
@@ -72,6 +76,7 @@ socialNetwork.controller('PostsController',
 			postsData.likePost(post.id).then(
 				function success(result) {
 					socialNetwork.noty.success("Successfully liked post.");
+
 					post.liked = true;
 					post.likesCount++;
 				},
@@ -84,6 +89,7 @@ socialNetwork.controller('PostsController',
 			postsData.unlikePost(post.id).then(
 				function success(result) {
 					socialNetwork.noty.success("Successfully unliked post.");
+					
 					post.liked = false;
 					post.likesCount--
 				},
