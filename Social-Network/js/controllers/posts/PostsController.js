@@ -28,9 +28,11 @@ socialNetwork.controller('PostsController',
 				function success(result) {
 					socialNetwork.noty.success("Successfully added post.");
 
-					$scope.startPostId = undefined;
-					$scope.posts = [];
-					$scope.loadPosts();
+					result.data.author = $scope.checkForImagesData(result.data.author);
+					result.data.wallOwner.name = postsData.processPostHeader(result.data, currentUserUsername);
+					result.data = postsData.getAvailablePostOptions(result.data, currentUserUsername);
+
+					$scope.posts.unshift(result.data);
 				},
 				function error(error) {
 					socialNetwork.noty.error("Error while submitting post.");

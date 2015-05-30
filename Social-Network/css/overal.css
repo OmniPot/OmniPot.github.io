@@ -68,7 +68,7 @@ input[type=text], input[type=email],input[type=password],textarea {
 }
 
 input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
-	box-shadow: #7f0000 0px 0px 3px !important;
+	box-shadow: #7f0000 0px 0px 5px !important;
 }
 
 /* Content wrapper styles */
