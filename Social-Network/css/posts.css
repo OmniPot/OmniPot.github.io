@@ -10,9 +10,14 @@
 	float: left;
 }
 
-.addPostOption{
+.addPostOption {
 	padding: 0 2% 2% 2%;
   	border-bottom: 2px solid #ccc;
+}
+
+.addPostOption button, .newPostForm  input {
+	display: inline-block;
+	font-size: 14px !important;
 }
 
 .postHeader .postAuthorImage {

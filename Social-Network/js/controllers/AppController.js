@@ -11,14 +11,14 @@ socialNetwork.controller('AppController', function($scope, $rootScope, authentic
 	$scope.checkForImagesData = function(userData) {
 		if (userData.profileImageData == null) {
 			if (userData.gender == 'Male' || userData.gender == 0) {
-				userData.profileImageData = 'resources/default.gif';
+				userData.profileImageData = 'resources/images/default.gif';
 			} else {
-				userData.profileImageData = 'resources/default.gif';
+				userData.profileImageData = 'resources/images/default.gif';
 			}
 		}
 
 		if (userData.coverImageData == null) {
-			userData.coverImageData = 'resources/defaultCover.jpg';
+			userData.coverImageData = 'resources/images/defaultCover.jpg';
 		}
 
 		return userData;

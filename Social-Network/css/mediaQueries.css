@@ -1,0 +1,146 @@
+@media screen and (max-width: 961px) {
+	html {
+		background: #fff; 
+	}
+	.wrapper {
+		width: 90%;
+		overflow: hidden;
+	}
+
+	.loggedUserHeader {
+		height: 50px;
+	}
+
+	.loggedUserHeader .profileImageContainer {
+		width: 6%;
+	}
+
+	.loggedUserHeader .usernameContainer {
+		top: 10px;
+  		left: 8%
+	}
+
+	.loggedUserHeader .headerNavigation {
+		top: 15px;
+	}
+
+	.requestsCount {
+		left: 18%;
+	}
+
+	.loggedUserHeader .headerNavigation > ul > li {
+		width: 25px;
+		height: 25px;
+		margin: 0% 1.75%;
+	}
+
+	.group > input{
+		font-size: 15px;
+	}
+}
+
+@media screen and (max-width: 641px) {
+	.wrapper {
+		width: 92%;
+		padding: 2%;
+		margin: 2%;
+	}
+
+	.loggedUserHeader .usernameContainer {
+  		left: 10%;
+  		font-size: 14px;
+	}
+
+	.loggedUserHeader .profileImageContainer {
+		width: 37px;
+	}
+
+	span.requestsCount {
+		left: 63%;
+	}
+
+	.loggedUserHeader .headerNavigation {
+		top: 10px;
+		left: 45%;
+  		width: 50%;
+	}
+
+	.loggedUserHeader .headerNavigation > ul > li {
+		width: 28px;
+		height: 28px;
+		margin: 0% 1.45%;
+	}
+
+	.loggedUserHeader .usersSearchContainer {
+		display: none;
+	}
+
+	.requestsContainer {
+		position: absolute;
+		width: 250px;
+		left: -20%;
+		top: 110%;
+	}
+
+	.userImagesContainer {
+		margin-top: 30px;
+	}
+
+
+	.pageHeader > h1 {
+		margin-top: 7%;
+	}
+
+	.addPostOption > input {
+		width: 70%;
+	}
+
+	.wallOwnerName > h2 {
+		font-size: 20;
+		margin: 1%;
+	}
+
+	.postsContainer {
+		width: 96%;
+		padding: 2%;
+		margin: 2% auto;
+	}
+
+	.friendsPreviewContainer {
+		display: none;
+	}
+
+	.group > input{
+		font-size: 12px;
+	}
+}
+
+@media screen and (max-width: 481px) {
+	.loggedUserHeader .usernameContainer {
+		top: 10px;
+  		left: 12%;
+  		font-size: 12px;
+	}
+
+	.loggedUserHeader .headerNavigation {
+		top: 15px;
+		left: 45%;
+  		width: 190px;
+  		height: 26px;
+	}
+
+	.loggedUserHeader .headerNavigation > ul > li {
+		width: 22px;
+		height: 22px;
+		margin: 0% 1.5%;
+	}
+
+	span.requestsCount {
+		left: 48%;
+	}
+
+	.pageHeader > h1 {
+		margin-top: 10%;
+		font-size: 24px !important;
+	}
+}

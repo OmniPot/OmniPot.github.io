@@ -23,6 +23,7 @@
 	display: block;
 	width: 100%;
 	max-width: 100%;
+	border: none;
 }
 
 .loggedUserHeader .usernameContainer {
@@ -70,7 +71,7 @@
 	display: inline-block;
 	width: 30px;
 	height: 30px;
-	background: #fff url('../resources/search-icon.png') no-repeat center center;
+	background: #fff url('../resources/images/search-icon.png') no-repeat center center;
 	background-size: cover;
 	vertical-align: middle;
 }
@@ -123,32 +124,32 @@
 }
 
 .loggedUserHeader .headerNavigation > ul > li > .home{
-	background: url('../resources/home-icon.png') no-repeat center center;
+	background: url('../resources/images/home-icon.png') no-repeat center center;
 	background-size: cover;
 }
 
 .loggedUserHeader .headerNavigation > ul > li > .wall{
-	background: url('../resources/wall-icon.png') no-repeat center center;
+	background: url('../resources/images/wall-icon.png') no-repeat center center;
 	background-size: cover;
 }
 
 .loggedUserHeader .headerNavigation > ul > li > .editProfile{
-	background: url('../resources/edit-profile-icon.png') no-repeat center center;
+	background: url('../resources/images/edit-profile-icon.png') no-repeat center center;
 	background-size: cover;
 }
 
 .loggedUserHeader .headerNavigation > ul > li > .friendRequests{
-	background: url('../resources/friend-requests-icon.png') no-repeat center center;
+	background: url('../resources/images/friend-requests-icon.png') no-repeat center center;
 	background-size: cover;
 }
 
 .loggedUserHeader .headerNavigation > ul > li > .changePassword{
-	background: url('../resources/password-change-icon.png') no-repeat center center;
+	background: url('../resources/images/password-change-icon.png') no-repeat center center;
 	background-size: cover;
 }
 
 .loggedUserHeader .headerNavigation > ul > li > .logout{
-	background: url('../resources/logout-icon.jpg') no-repeat center center;
+	background: url('../resources/images/logout-icon.jpg') no-repeat center center;
 	background-size: cover;
 }
 

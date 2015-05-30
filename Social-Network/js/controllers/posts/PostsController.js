@@ -1,76 +1,20 @@
 socialNetwork.controller('PostsController',
-	function($scope, $location, $routeParams, postsData, pageSize, usSpinnerService) {
+	function($scope, $location, $routeParams, postsData, usSpinnerService) {
 		var currentUserUsername = $scope.authentication.getUserData().username;
 		$scope.editPostContainer = {};
 
 		$scope.posts = [];
-		$scope.stopScroll = false;
-		$scope.busy = false;
-		$scope.startPostId = undefined;
-
-		$scope.getUserWallPosts = function() {
-			postsData.getUserWallPosts($routeParams.username, $scope.startPostId).then(
-				function success(posts) {
-					if (posts.data.length == 0) {
-						$scope.stopScroll = true;
-					} else {
-						posts.data.forEach(function(post) {
-							post.author = $scope.checkForImagesData(post.author);
-							post.wallOwner.name = postsData.processPostHeader(post, currentUserUsername);
-							post = postsData.getAvailablePostOptions(post, currentUserUsername);
-						});
-
-						$scope.posts = $scope.posts.concat(posts.data);
-
-						$scope.startPostId = posts.data.pop().id;
-						$scope.busy = false;
-					}
-
-					usSpinnerService.stop('preloader');
-				},
-				function error(error) {
-					socialNetwork.noty.error("Unable to fetch user wall data.");
-					usSpinnerService.stop('preloader');
-				});
-		}
-
-		$scope.getNewsFeedPosts = function() {
-			postsData.getNewsFeedPosts($scope.startPostId).then(
-				function success(posts) {
-					if (posts.data.length == 0) {
-						$scope.stopScroll = true;
-					} else {
-						posts.data.forEach(function(post) {
-							post.author = $scope.checkForImagesData(post.author);
-							post.wallOwner.name = postsData.processPostHeader(post, currentUserUsername);
-							post = postsData.getAvailablePostOptions(post, currentUserUsername);
-						});
-
-						$scope.posts = $scope.posts.concat(posts.data);
-
-						$scope.startPostId = posts.data.pop().id;
-						$scope.busy = false;
-					}
-
-					usSpinnerService.stop('preloader');
-				},
-				function error(error) {
-					socialNetwork.noty.error('Error fetching news feed information.');
-					usSpinnerService.stop('preloader');
-				});
-		}
 
 		$scope.loadPosts = function() {
-			if ($scope.busy) {
-				return;
-			}
+			if ($scope.busy) { return; }
+			$scope.busy = true;
 
 			usSpinnerService.spin('preloader');
-			$scope.busy = true;
+
 			if ($location.path().indexOf('/users/') > -1) {
-				$scope.getUserWallPosts();
+				getUserWallPosts();
 			} else if ($location.path().indexOf('/home') > -1) {
-				$scope.getNewsFeedPosts();
+				getNewsFeedPosts();
 			}
 		}
 
@@ -146,5 +90,45 @@ socialNetwork.controller('PostsController',
 				function error(error) {
 					socialNetwork.noty.error("Error while unliking post.");
 				});
+		}
+
+		function getUserWallPosts() {
+			postsData.getUserWallPosts($routeParams.username, $scope.startPostId)
+				.then(getPostsSuccess, getPostsError);
+		}
+
+		function getNewsFeedPosts() {
+			postsData.getNewsFeedPosts($scope.startPostId)
+				.then(getPostsSuccess, getPostsError);
+		}
+
+		function getPostsSuccess(posts) {
+			if (posts.data.length == 0) {
+				$scope.stopScroll = true;
+			} else {
+				posts.data.forEach(function(post) {
+					post.author = $scope.checkForImagesData(post.author);
+					post.wallOwner.name = postsData.processPostHeader(post, currentUserUsername);
+					post = postsData.getAvailablePostOptions(post, currentUserUsername);
+				});
+
+				$scope.posts = $scope.posts.concat(posts.data);
+
+				$scope.startPostId = posts.data.pop().id;
+				$scope.busy = false;
+			}
+
+			usSpinnerService.stop('preloader');
+		}
+
+		function getPostsError(error) {
+			socialNetwork.noty.error("Unable to fetch posts data.");
+			usSpinnerService.stop('preloader');
+		}
+
+		function infiniteScrollConfig() {
+			$scope.stopScroll = false;
+			$scope.busy = false;
+			$scope.startPostId = undefined;
 		}
 	});
