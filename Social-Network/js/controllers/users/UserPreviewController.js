@@ -1,9 +1,9 @@
 socialNetwork.controller('UserPreviewController', function($scope, $timeout, usersData, friendsData) {
 	$scope.hideTime = 1500;
 
-	$scope.getUserPreview = function(event, username) {
+	$scope.getUserPreview = function(event) {
 		$scope.showUserPreview(event);
-		usersData.getUserPreview(username).then(
+		usersData.getUserPreview($scope.userUsername).then(
 			function success(previewedUser) {
 				previewedUser.data = $scope.checkForImagesData(previewedUser.data);
 				$scope.canInviteUser = !previewedUser.data.isFriend && !previewedUser.data.hasPendingRequest;
@@ -20,7 +20,6 @@ socialNetwork.controller('UserPreviewController', function($scope, $timeout, use
 		friendsData.sendFriendRequest($scope.userUsername).then(
 			function success() {
 				socialNetwork.noty.success('Friend request successfully sent.');
-				$scope.getUserPreview(null, $scope.userUsername);
 			},
 			function error(error) {
 				socialNetwork.noty.error('Error sending friend request.');

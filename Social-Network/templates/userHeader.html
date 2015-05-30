@@ -5,6 +5,11 @@
 	<div class="userCoverImage">
 		<img ng-src="{{wallOwner.coverImageData}}" alt="">
 	</div>
+	<div class="userCoverStatus" ng-if="!isOwnWall">
+		<span class="status" ng-if="wallOwner.isFriend">Friends</span>
+		<span class="status" ng-if="wallOwner.hasPendingRequest">Pending Request</span>
+		<button class="status" ng-if="!(wallOwner.isFriend || wallOwner.hasPendingRequest)" ng-click="sendFriendRequest()">Invite</button>
+	</div>
 </div>
 
 <header class="wallOwnerName">

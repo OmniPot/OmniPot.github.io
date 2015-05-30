@@ -15,9 +15,10 @@
   	border-bottom: 2px solid #ccc;
 }
 
-.addPostOption button, .newPostForm  input {
+.addPostOption > form > button, .addPostOption > form > input {
 	display: inline-block;
 	font-size: 14px !important;
+	padding: 1% !important;
 }
 
 .postHeader .postAuthorImage {

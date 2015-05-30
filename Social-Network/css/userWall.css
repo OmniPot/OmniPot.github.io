@@ -32,6 +32,22 @@
 	max-width: 100%;
 }
 
+.userCoverStatus {
+	position: absolute;
+	bottom: 4%;
+	right: .6%;
+	text-align: right;
+	z-index: 998;
+}
+
+.userCoverStatus .status {
+	padding: 5px 10px !important;
+	border: 1px solid #7f0000;
+	font-size: 18px !important;
+	color: #000;
+	background: #fff;
+}
+
 .wallOwnerName > h2 {
 	padding: 0 2% 0 2%;
 	color: #222;
