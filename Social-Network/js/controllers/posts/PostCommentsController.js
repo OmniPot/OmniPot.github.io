@@ -22,6 +22,7 @@ socialNetwork.controller('PostCommentsController', function($scope, commentsData
 		commentsData.addPostComment(post.id, newCommentContent).then(
 			function success(result) {
 				socialNetwork.noty.success("Comment added successfully.");
+				$('.commentPostContainer input').val('');
 
 				result.data.author = $scope.checkForImagesData(result.data.author);
 				result.data = commentsData.getAvailableCommentOptions(post, result.data, currentUserUsername);

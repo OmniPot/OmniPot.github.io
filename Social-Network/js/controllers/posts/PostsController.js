@@ -4,6 +4,7 @@ socialNetwork.controller('PostsController',
 		$scope.editPostContainer = {};
 
 		$scope.posts = [];
+		$scope.busy = false;
 
 		$scope.loadPosts = function() {
 			if ($scope.busy) { return; }
@@ -23,6 +24,8 @@ socialNetwork.controller('PostsController',
 				postContent: postContent,
 				username: $scope.wallOwner.username
 			};
+
+			$('.addPostOption form input').val('');
 
 			postsData.addPost(postData).then(
 				function success(result) {

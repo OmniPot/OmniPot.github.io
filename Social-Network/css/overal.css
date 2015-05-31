@@ -53,6 +53,11 @@ button:hover {
 	box-shadow: #7f0000 0px 0px 2px;
 }
 
+button:focus {
+	outline: none !important;
+	box-shadow: none !important;
+}
+
 img {
 	display: block;
 	border: 1px solid #ccc;
