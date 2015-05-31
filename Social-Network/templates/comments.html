@@ -34,12 +34,12 @@
 	</section>
 </div>
 
-<div class="showMoreButtonContainer" ng-if="showMoreLessButtonAvailable">
-	<button ng-if="!allCommentsShown" ng-click="showAllComments()">Show More</button>
-	<button ng-if="allCommentsShown" ng-click="showLastThreeComments()">Show Less</button>
+<div class="showMoreButtonContainer">
+	<button ng-if="comments.length < post.totalCommentsCount" ng-click="getAllPostComments(post)">Show More</button>
+	<button ng-if="comments.length == post.totalCommentsCount && post.totalCommentsCount > 3" ng-click="showLastThreeComments(post)">Show Less</button>
 </div>
 
 <div class="commentPostContainer" ng-if="post.commentOptionAvailable">
 	<input type="text" ng-model="commentContent" placeholder="Comment something here">
-	<button ng-click="addComment(commentContent)">Comment&nbsp;&#x270E;</button>
+	<button ng-click="addComment(post, commentContent)">Comment&nbsp;&#x270E;</button>
 </div>

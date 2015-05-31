@@ -27,7 +27,7 @@ socialNetwork.controller('PostsController',
 			postsData.addPost(postData).then(
 				function success(result) {
 					socialNetwork.noty.success("Successfully added post.");
-
+					
 					result.data.author = $scope.checkForImagesData(result.data.author);
 					result.data.wallOwner.name = postsData.processPostHeader(result.data, currentUserUsername);
 					result.data = postsData.getAvailablePostOptions(result.data, currentUserUsername);
@@ -44,13 +44,13 @@ socialNetwork.controller('PostsController',
 				function success(result) {
 					socialNetwork.noty.success("Successfully deleted post.");
 
-					$scope.posts = $scope.posts.filter(function(p) {
-						return p.id != post.id;
-					});
+					var index = $scope.posts.indexOf(post);
+
+					$scope.posts.splice(index, 1);
 				},
 				function error(error) {
 					socialNetwork.noty.error("Error while deleting post.");
-				})
+				});
 		}
 
 		$scope.editPost = function(post) {

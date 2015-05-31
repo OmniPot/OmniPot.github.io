@@ -2,48 +2,32 @@ socialNetwork.controller('PostCommentsController', function($scope, commentsData
 	var currentUserUsername = $scope.authentication.getUserData().username;
 
 	$scope.editCommentContainer = {};
+	$scope.comments = processCommentsData($scope.post.comments);
 
-	$scope.getPostComments = function(post) {
-		commentsData.getPostComments(post.id).then(
-			function success(postComments) {
-				postComments.data.forEach(function(comment) {
-					comment.author = $scope.checkForImagesData(comment.author);
-					comment = commentsData.getAvailableCommentOptions(post, comment, currentUserUsername);
-				});
-
-				$scope.showMoreLessButtonAvailable = false;
-				$scope.allCommentsShown = false;
-				$scope.fullComments = postComments.data;
-				$scope.showLastThreeComments();
-
-				if (postComments.data.length > 3) {
-					$scope.showMoreLessButtonAvailable = true;
-				} else {
-					$scope.showMoreLessButtonAvailable = false;
-				}
+	$scope.getAllPostComments = function() {
+		commentsData.getPostComments($scope.post.id).then(
+			function success(result) {
+				$scope.comments = processCommentsData(result.data);
 			},
 			function error(error) {
 				socialNetwork.noty.error("Unable to fetch post comments data.");
 			});
 	}
 
-	$scope.getPostComments($scope.post);
-
-	$scope.showAllComments = function() {
-		$scope.allCommentsShown = true;
-		$scope.comments = $scope.fullComments;
-	}
-
 	$scope.showLastThreeComments = function() {
-		$scope.allCommentsShown = false;
-		$scope.comments = $scope.fullComments.slice(0, 3);
+		$scope.comments = $scope.comments.slice(0, 3);
 	}
 
-	$scope.addComment = function(commentContent) {
-		commentsData.addPostComment($scope.post.id, commentContent).then(
+	$scope.addComment = function(post, newCommentContent) {
+		commentsData.addPostComment(post.id, newCommentContent).then(
 			function success(result) {
 				socialNetwork.noty.success("Comment added successfully.");
-				$scope.getPostComments($scope.post);
+
+				result.data.author = $scope.checkForImagesData(result.data.author);
+				result.data = commentsData.getAvailableCommentOptions(post, result.data, currentUserUsername);
+
+				post.totalCommentsCount++;
+				$scope.comments.unshift(result.data);
 			},
 			function error(error) {
 				socialNetwork.noty.error("Error while adding comment.");
@@ -54,13 +38,15 @@ socialNetwork.controller('PostCommentsController', function($scope, commentsData
 		commentsData.deletePostComment(post.id, comment.id).then(
 			function success(result) {
 				socialNetwork.noty.success("Successfully deleted comment.");
-				$scope.comments = $scope.comments.filter(function(c) {
-					return c.id != comment.id;
-				});
+
+				var index = post.comments.indexOf(comment);
+
+				$scope.comments.splice(index, 1);
+				post.totalCommentsCount--;
 			},
 			function error(error) {
 				socialNetwork.noty.error("Error while deleting comment.");
-			})
+			});
 	}
 
 	$scope.editPostComment = function(post, comment) {
@@ -106,5 +92,14 @@ socialNetwork.controller('PostCommentsController', function($scope, commentsData
 			function error(error) {
 				socialNetwork.noty.error("Error while unliking comment.");
 			});
+	}
+
+	function processCommentsData(data) {
+		data.forEach(function(comment) {
+			comment.author = $scope.checkForImagesData(comment.author);
+			comment = commentsData.getAvailableCommentOptions($scope.post, comment, currentUserUsername);
+		});
+
+		return data;
 	}
 });
